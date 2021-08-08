@@ -1,0 +1,13 @@
+.footer {
+  padding: 1rem;
+  background-color: var(--c-main);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer p {
+  color: var(--c-white);
+  font-size: var(--fs-base);
+  font-weight: 600;
+}
