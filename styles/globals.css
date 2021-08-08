@@ -1,11 +1,47 @@
+:root {
+  /* colors */
+  --c-main-h: 0;
+  --c-main-s: 4%;
+  --c-main-l: 14%;
+  --c-main: hsl(var(--c-main-h) var(--c-main-s) var(--c-main-l));
+  --c-white-h: 0;
+  --c-white-s: 0%;
+  --c-white-l: 100%;
+  --c-white: hsl(var(--c-white-h) var(--c-white-s) var(--c-white-l));
+
+  /* font sizes */
+  --fs-large-1: 4.209rem;
+  --fs-large-2: 3.157rem;
+  --fs-large-3: 2.369rem;
+  --fs-large-4: 1.777rem;
+  --fs-base: 1.333rem;
+  --fs-small-1: 1rem;
+  --fs-small-2: 0.75rem;
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
 }
 
-html {
-  font-family: 'Roboto', Verdana, Geneva, Tahoma, sans-serif;
-  font-size: 62.5%;
+html { font-size: 62.5%; }
+
+body {
+  font-weight: 400; 
   line-height: 1.7;
+  color: var(--c-main);
 }
+
+h1, h2, h3, h4, h5 {
+  font-weight: 400;
+  line-height: 1;
+}
+
+h1 { font-size: clamp(var(--fs-large-3), 5vmin, var(--fs-large-1)); }
+h2 { font-size: clamp(var(--fs-large-4), 5vmin, var(--fs-large-2)); }
+h3 { font-size: clamp(var(--fs-base), 5vmin, var(--fs-large-3)); }
+h4 { font-size: clamp(var(--fs-small-1), 5vmin, var(--fs-large-4)); }
+p { font-size: clamp(var(--fs-small-2), 5vmin, var(--fs-base)); }
+small { font-size: clamp(var(--fs-small-2), 5vmin, var(--fs-small-1)); }
