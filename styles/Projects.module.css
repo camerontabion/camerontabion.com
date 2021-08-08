@@ -1,0 +1,73 @@
+.section {
+  background-color: var(--c-main);
+  color: var(--c-white);
+  display: flex;
+  flex-direction: column;
+  gap: clamp(4rem, 10vw, 10rem);
+  align-items: center;
+  justify-content: center;
+  padding: clamp(6rem, 10vw, 14rem);
+}
+
+.projects {
+  width: min(86vw, 120rem);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  justify-content: center;
+}
+
+.project {
+  max-width: 36rem;
+  background-color: var(--c-white);
+  color: var(--c-main);
+  border-radius: 8px;
+  display: grid;
+  grid-template-rows: clamp(10rem, 20vw, 20rem) 1fr;
+}
+
+.image {
+  height: clamp(10rem, 20vw, 20rem);
+  border-radius: 8px 8px 0 0;
+  background-color: gray;
+}
+
+.details {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  justify-content: space-between;
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.description h4 {
+  font-weight: 600;
+}
+
+.links {
+  display: flex;
+  gap: 1rem;
+}
+
+.links a {
+  text-decoration: none;
+  font-size: var(--fs-base);
+  padding: 1rem;
+  background-color: var(--c-main);
+  color: var(--c-white);
+  border-radius: 8px;
+}
+
+.links a:hover {
+  background-color: hsl(var(--c-main-h) var(--c-main-s) calc(var(--c-main-l) + 10%));
+}
+
+.links a:active {
+  background-color: hsl(var(--c-main-h) var(--c-main-s) calc(var(--c-main-l) - 10%));
+}
