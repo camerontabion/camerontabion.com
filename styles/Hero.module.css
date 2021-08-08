@@ -93,8 +93,8 @@
 
 .profile-pic {
   border-radius: 50%;
-  width: clamp(20rem, 34vmin, 40rem);
-  height: clamp(20rem, 34vmin, 40rem);
+  width: clamp(20rem, 46vmin, 40rem);
+  height: clamp(20rem, 46vmin, 40rem);
   border: 5px solid var(--c-white);
   position: relative;
   margin: 0 clamp(1rem, 2vmin, 5rem);
