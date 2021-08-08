@@ -79,7 +79,7 @@
   gap: 2rem;
   align-items: center;
   justify-content: center;
-  padding: 2rem;
+  padding: 0 clamp(2rem, 1vmin, 5rem);
 }
 
 .name h1 {
@@ -93,6 +93,7 @@
   height: clamp(20rem, 50vmin, 40rem);
   border: 5px solid var(--c-white);
   position: relative;
+  margin: 0 clamp(2rem, 1vmin, 5rem);
 }
 
 .profile-pic div {
@@ -127,8 +128,16 @@
   100% { transform: translateY(0); }
 }
 
-@media (orientation: portrait) {
+@media (orientation: portrait), (max-width: 480px) {
   .main {
     flex-direction: column-reverse;
+  }
+
+  .name {
+    padding: clamp(2rem, 1vmin, 5rem) 0;
+  }
+
+  .profile-pic {
+    margin: clamp(2rem, 1vmin, 5rem) 0;
   }
 }
