@@ -34,6 +34,7 @@ const Hero = () => (
           layout="fill"
           objectFit="cover"
           objectPosition="center top"
+          placeholder="blur"
           priority
         />
       </div>

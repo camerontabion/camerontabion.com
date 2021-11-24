@@ -100,7 +100,7 @@
   margin: 0 clamp(1rem, 2vmin, 5rem);
 }
 
-.profile-pic div {
+.profile-pic span {
   border-radius: 50%;
 }
 
