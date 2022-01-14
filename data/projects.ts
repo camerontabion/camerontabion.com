@@ -3,11 +3,12 @@
 export const projects = [
   {
     name: 'Healage',
-    description: 'Patient dashboard for managing patients, prescriptions, and medication reminders. Created in partnership with the Kirk Kerkorian School of Medicine at UNLV.',
+    description: 'Patient dashboard for managing patients, prescriptions, and medication reminders. Reminders are displayed on a FitBit watch app. Created in partnership with the Kirk Kerkorian School of Medicine at UNLV.',
     image: '/healage.png',
     links: [
       { name: 'Website Repo', href: 'https://github.com/camerontabion/healage-website' },
       { name: 'Server Repo', href: 'https://github.com/camerontabion/healage-server' },
+      { name: 'FitBit Repo', href: 'https://github.com/camerontabion/healage-fitbit' },
     ],
   },
   {
