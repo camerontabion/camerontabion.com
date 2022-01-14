@@ -6,6 +6,6 @@ import {
 
 export const socials = [
   { href: 'https://github.com/camerontabion/', icon: <GithubIcon /> },
-  { href: 'mailto:cameronkeokolotabion@gmail.com', icon: <EmailIcon /> },
+  { href: 'mailto:contact@camerontabion.com', icon: <EmailIcon /> },
   { href: 'https://www.linkedin.com/in/camerontabion/', icon: <LinkedinIcon /> },
 ];
