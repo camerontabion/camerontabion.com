@@ -1,5 +1,3 @@
-// https://lvsp.camerontabion.com/
-
 export const projects = [
   {
     name: 'Healage',
