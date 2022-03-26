@@ -1,5 +1,5 @@
 import { ReactNode, useState } from 'react';
-import styles from '../../styles/About.module.css';
+import styles from 'styles/About.module.css';
 
 export const Skill = ({ name, icon }: Props) => {
   const [animating, setAnimating] = useState(false);

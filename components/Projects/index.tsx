@@ -1,6 +1,6 @@
-import styles from '../../styles/Projects.module.css';
-import { projects } from '../../data/projects';
-import { Project } from './Project';
+import styles from 'styles/Projects.module.css';
+import { projects } from 'data/projects';
+import { Project } from 'components/Projects/Project';
 
 const Projects = () => (
   <section id="projects" className={styles.section}>

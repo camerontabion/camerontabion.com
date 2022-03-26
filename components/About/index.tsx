@@ -1,7 +1,7 @@
-import styles from '../../styles/About.module.css';
-import { title, paragraphs } from '../../data/about';
-import { skills } from '../../data/skills';
-import { Skill } from './Skill';
+import { Skill } from 'components/About/Skill';
+import styles from 'styles/About.module.css';
+import { title, paragraphs } from 'data/about';
+import { skills } from 'data/skills';
 
 const About = () => (
   <section id="about" className={styles.section}>

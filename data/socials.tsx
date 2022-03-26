@@ -2,7 +2,7 @@ import {
   GithubIcon,
   EmailIcon,
   LinkedinIcon,
-} from '../components/icons';
+} from 'components/icons';
 
 export const socials = [
   { href: 'https://github.com/camerontabion/', icon: <GithubIcon /> },

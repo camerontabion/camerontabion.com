@@ -1,10 +1,10 @@
 import Image from 'next/image';
 import { Link } from 'react-scroll';
-import styles from '../../styles/Hero.module.css';
-import profilePic from '../../public/me.jpg';
-import { DownArrowIcon } from '../icons';
-import { socials } from '../../data/socials';
-import { Social } from './Social';
+import styles from 'styles/Hero.module.css';
+import profilePic from 'public/me.jpg';
+import { socials } from 'data/socials';
+import { DownArrowIcon } from 'components/icons';
+import { Social } from 'components/Hero/Social';
 
 const Hero = () => (
   <main className={styles.hero}>

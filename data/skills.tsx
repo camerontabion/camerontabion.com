@@ -8,7 +8,7 @@ import {
   PythonIcon,
   CppIcon,
   JavaIcon,
-} from '../components/icons';
+} from 'components/icons';
 
 export const skills = [
   { name: 'HTML', icon: <HtmlIcon /> },
