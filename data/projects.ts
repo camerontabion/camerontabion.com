@@ -6,7 +6,7 @@ export const projects = [
     links: [
       { name: 'Website Repo', href: 'https://github.com/camerontabion/healage-website' },
       { name: 'Server Repo', href: 'https://github.com/camerontabion/healage-server' },
-      { name: 'FitBit Repo', href: 'https://github.com/camerontabion/healage-fitbit' },
+      { name: 'Fitbit Repo', href: 'https://github.com/camerontabion/healage-fitbit' },
     ],
   },
   {
