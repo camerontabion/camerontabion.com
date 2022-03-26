@@ -1,5 +1,13 @@
 export const projects = [
   {
+    name: 'Harpie',
+    description: 'Hired as a Frontend Developer for Harpie. Currently developing several high-performance React components for Harpie\'s web app.',
+    image: '/harpie.png',
+    links: [
+      { name: 'View Website', href: 'https://www.harpie.io' },
+    ],
+  },
+  {
     name: 'Healage',
     description: 'Patient dashboard for managing patients, prescriptions, and medication reminders. Reminders are displayed on a FitBit watch app. Created in partnership with the Kirk Kerkorian School of Medicine at UNLV.',
     image: '/healage.png',
