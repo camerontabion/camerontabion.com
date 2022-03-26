@@ -4,23 +4,24 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: clamp(6rem, 10vw, 14rem);
+  padding: clamp(6rem, 10vw, 10rem);
 }
 
 .bio {
   width: min(86vw, 80rem);
   display: flex;
   flex-direction: column;
-  gap: clamp(1rem, 6vw, 4rem);
+  gap: clamp(1rem, 6vw, 2rem);
 }
 
 .bio h2 {
   text-align: center;
   font-weight: 600;
+  margin-bottom: clamp(1rem, 1vw, 2rem);
 }
 
 .bio p {
-  line-height: 1.2;
+  line-height: 1.4;
   font-size: clamp(var(--fs-base), 5vw, var(--fs-large-3));
 }
 
