@@ -6,7 +6,7 @@
   gap: clamp(4rem, 10vw, 10rem);
   align-items: center;
   justify-content: center;
-  padding: clamp(6rem, 10vw, 14rem);
+  padding: clamp(6rem, 10vw, 10rem);
 }
 
 .projects {
