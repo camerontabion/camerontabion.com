@@ -1,12 +1,30 @@
 import Project from "components/project";
+import { IconLink, IconBrandGithubFilled } from "@tabler/icons-react";
 
-export const projects = [
+export interface Project {
+  name: string;
+  description: string;
+  image: string;
+  links: {
+    name: string;
+    href: string;
+    icon?: React.ReactNode;
+  }[];
+}
+
+export const projects: Project[] = [
   {
     name: "Harpie",
     description:
-      "Hired as a Frontend Developer for Harpie. Currently developing several high-performance React components for Harpie's web app.",
+      "Harpie is a powerful web3 security tool that protects users from phishing attacks and scams. Currently working as a Full Stack Developer II at Harpie.",
     image: "/harpie.png",
-    links: [{ name: "View Website", href: "https://www.harpie.io" }],
+    links: [
+      {
+        name: "View Website",
+        href: "https://www.harpie.io",
+        icon: <IconLink className="w-8 h-8" />,
+      },
+    ],
   },
   {
     name: "Healage",
@@ -20,8 +38,16 @@ export const projects = [
     description: "The official website for the Las Vegas Scholars Program.",
     image: "/lvsp.png",
     links: [
-      { name: "View Website", href: "https://lvsp.camerontabion.com" },
-      { name: "GitHub Repo", href: "https://github.com/camerontabion/lvsp-website" },
+      {
+        name: "View Website",
+        href: "https://lvsp.camerontabion.com",
+        icon: <IconLink className="w-8 h-8" />,
+      },
+      {
+        name: "GitHub Repo",
+        href: "https://github.com/camerontabion/lvsp-website",
+        icon: <IconBrandGithubFilled className="w-8 h-8" />,
+      },
     ],
   },
   {
@@ -29,8 +55,16 @@ export const projects = [
     description: "My personal/portfolio website showcasing my skills and projects.",
     image: "/camerontabion.png",
     links: [
-      { name: "View Website", href: "https://www.camerontabion.com" },
-      { name: "GitHub Repo", href: "https://github.com/camerontabion/camerontabion.com" },
+      {
+        name: "View Website",
+        href: "https://www.camerontabion.com",
+        icon: <IconLink className="w-8 h-8" />,
+      },
+      {
+        name: "GitHub Repo",
+        href: "https://github.com/camerontabion/camerontabion.com",
+        icon: <IconBrandGithubFilled className="w-8 h-8" />,
+      },
     ],
   },
 ];
