@@ -36,7 +36,7 @@ export default function Hero() {
           <div className="flex flex-col items-center gap-4">
             <h1 className="text-4xl">Cameron Keokolo Tabion</h1>
             <div className="w-10/12 h-1 bg-white" />
-            <h2 className="text-lg">Full Stack Developer</h2>
+            <h2 className="text-lg">Full Stack Software Engineer</h2>
           </div>
           <div className="relative w-64 h-64 overflow-hidden border-2 border-white rounded-full">
             <Image

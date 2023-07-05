@@ -27,19 +27,26 @@ export default function About() {
       <h2 className="mb-12 text-4xl text-center">Hello, I'm Cam!</h2>
       <div className="flex flex-col max-w-4xl gap-4 mx-auto mb-20">
         <p className="text-lg">
-          I am a full stack developer with a passion for creating clean and effective web apps using
-          modern technologies.
+          I am a full stack software engineer with a passion for creating clean and effective web
+          apps using modern technologies.
         </p>
         <p className="text-lg">
-          Currently, I am a full-time student finishing up my bachelor's degree in Computer Science
-          at the University of Nevada, Las Vegas. I am working as a frontend developer at Harpie,
-          building out several components for their React web app. I also work part-time as a
-          software developer in UNLV's DataX Lab under Dr. Mingon Kang and as a tutor for the LVSP
+          Currently, I am working as a Full Stack Software Engineer at Harpie; working on several
+          mission-critical features for their advanced security products, many of which I have led
+          development on. I also work part-time as a Computer Science and Math tutor for the LVSP
           scholarship cohort under Dr. Sarah Harris.
         </p>
         <p className="text-lg">
-          If you are interested in working with me, feel free to shoot me an email at:
-          contact@camerontabion.com
+          I am currently looking for freelance work. If you are interested in working with me, feel
+          free to shoot me an email at:{" "}
+          <a
+            href="mailto:contact@camerontabion.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline"
+          >
+            contact@camerontabion.com
+          </a>
         </p>
       </div>
 
