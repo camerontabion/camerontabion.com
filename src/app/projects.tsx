@@ -16,7 +16,7 @@ export const projects: Project[] = [
   {
     name: "Harpie",
     description:
-      "Harpie is a powerful web3 security tool that protects users from phishing attacks and scams. Currently working as a Full Stack Developer II at Harpie.",
+      "Harpie is a powerful web3 security tool that protects users from phishing attacks and scams. Currently working as a Full Stack Software Engineer II at Harpie.",
     image: "/harpie.png",
     links: [
       {
