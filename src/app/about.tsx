@@ -36,18 +36,6 @@ export default function About() {
           development on. I also work part-time as a Computer Science and Math tutor for the LVSP
           scholarship cohort under Dr. Sarah Harris.
         </p>
-        <p className="text-lg">
-          I am currently looking for freelance work. If you are interested in working with me, feel
-          free to shoot me an email at:{" "}
-          <a
-            href="mailto:contact@camerontabion.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="underline"
-          >
-            contact@camerontabion.com
-          </a>
-        </p>
       </div>
 
       <h3 className="mb-8 text-3xl text-center">Skills</h3>
