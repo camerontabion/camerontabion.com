@@ -11,7 +11,7 @@ export default function Hero() {
           <a href="https://github.com/camerontabion" target="_blank" rel="noopener noreferrer">
             <IconBrandGithub className="w-8 h-8" />
           </a>
-          <a href="mailto:contact@camerontabion.com" target="_blank" rel="noopener noreferrer">
+          <a href="mailto:cameronktabion@gmail.com" target="_blank" rel="noopener noreferrer">
             <IconMail className="w-8 h-8" />
           </a>
           <a
