@@ -6,7 +6,7 @@ import {
   useRef,
   useState,
 } from "react";
-import { cn } from "../utils/cn";
+import { cn } from "~/utils/cn";
 
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
