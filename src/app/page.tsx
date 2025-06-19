@@ -76,18 +76,18 @@ const projects = [
 ];
 
 const skills = [
-  { name: "HTML", icon: <SiHtml5 className="h-12 w-12" /> },
-  { name: "CSS", icon: <SiCss className="h-12 w-12" /> },
-  { name: "JavaScript", icon: <SiJavascript className="h-12 w-12" /> },
-  { name: "TypeScript", icon: <SiTypescript className="h-12 w-12" /> },
-  { name: "React", icon: <SiReact className="h-12 w-12" /> },
-  { name: "Next.js", icon: <SiNextdotjs className="h-12 w-12" /> },
-  { name: "Node.js", icon: <SiNodedotjs className="h-12 w-12" /> },
-  { name: "PostgreSQL", icon: <SiPostgresql className="h-12 w-12" /> },
-  { name: "MongoDB", icon: <SiMongodb className="h-12 w-12" /> },
-  { name: "Python", icon: <SiPython className="h-12 w-12" /> },
-  { name: "Go", icon: <SiGo className="h-12 w-12" /> },
-  { name: "C++", icon: <SiCplusplus className="h-12 w-12" /> },
+  { name: "HTML", icon: <SiHtml5 className="size-12" /> },
+  { name: "CSS", icon: <SiCss className="size-12" /> },
+  { name: "JavaScript", icon: <SiJavascript className="size-12" /> },
+  { name: "TypeScript", icon: <SiTypescript className="size-12" /> },
+  { name: "React", icon: <SiReact className="size-12" /> },
+  { name: "Next.js", icon: <SiNextdotjs className="size-12" /> },
+  { name: "Node.js", icon: <SiNodedotjs className="size-12" /> },
+  { name: "PostgreSQL", icon: <SiPostgresql className="size-12" /> },
+  { name: "MongoDB", icon: <SiMongodb className="size-12" /> },
+  { name: "Python", icon: <SiPython className="size-12" /> },
+  { name: "Go", icon: <SiGo className="size-12" /> },
+  { name: "C++", icon: <SiCplusplus className="size-12" /> },
 ];
 
 export default function App() {
@@ -281,6 +281,7 @@ export default function App() {
                     href={href}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="hover:text-white/80 active:scale-95"
                   >
                     {icon}
                   </Link>
