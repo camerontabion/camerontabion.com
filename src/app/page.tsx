@@ -29,13 +29,7 @@ const projects = [
     description:
       "A suite of security products for your web3 wallet. I was the Lead Full Stack Engineer at Harpie.",
     image: "/harpie.png",
-    links: [
-      {
-        name: "View Website",
-        href: "https://www.harpie.io",
-        icon: <LinkIcon className="size-6" />,
-      },
-    ],
+    links: [],
   },
   {
     name: "Healage",
@@ -81,7 +75,7 @@ const projects = [
   },
 ];
 
-export const skills = [
+const skills = [
   { name: "HTML", icon: <SiHtml5 className="h-12 w-12" /> },
   { name: "CSS", icon: <SiCss className="h-12 w-12" /> },
   { name: "JavaScript", icon: <SiJavascript className="h-12 w-12" /> },
