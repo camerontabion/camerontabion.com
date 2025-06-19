@@ -18,7 +18,7 @@ import {
 import { CheckIcon, LinkIcon, MailIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
-import useCopyToClipboard from "../hooks/useCopyToClipboard";
+import useCopyToClipboard from "~/hooks/useCopyToClipboard";
 import GlassContainer from "./GlassContainer";
 import { Heading } from "./Heading";
 import { Section } from "./Section";
