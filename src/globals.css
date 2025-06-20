@@ -5,15 +5,15 @@
   --color-primary-foreground: oklch(0.9421 0.0115 263.86);
   --color-background: oklch(0.0757 0.0115 263.86);
 
-  --animate-copied: copied 0.25s ease-out forwards;
+  --animate-copied: copied 2s ease-out forwards;
   --animate-pulse: pulse 2s ease-in-out infinite;
 
   @keyframes copied {
-    0% {
+    0%, 100% {
       opacity: 0;
       transform: translate(0, -1rem);
     }
-    100% {
+    5%, 95% {
       opacity: 1;
       transform: translate(0, -2rem);
     }

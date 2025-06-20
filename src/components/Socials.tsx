@@ -34,8 +34,8 @@ export const EmailButton = ({
       className="relative flex items-center justify-center p-2"
     >
       {isCopied && (
-        <p className="-translate-y-1/2 absolute animate-copied text-white/80 text-xs">
-          copied
+        <p className="-translate-y-1/2 absolute animate-copied text-white text-xs">
+          Copied!
         </p>
       )}
       {isCopied ? (
