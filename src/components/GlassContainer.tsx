@@ -1,3 +1,5 @@
+"use client";
+
 import type { HTMLAttributes, ReactElement, ReactNode } from "react";
 import {
   cloneElement,
