@@ -1,16 +1,18 @@
+import Image, { type ImageProps } from "next/image";
 import { cn } from "~/utils/cn";
 
-interface Props extends React.ImgHTMLAttributes<HTMLImageElement> {
+interface Props extends Omit<ImageProps, "src" | "alt"> {
   size?: number;
   animation?: boolean;
   animationDelay?: string;
   animationDuration?: string;
+  priority?: boolean;
   className?: string;
 }
 
 export const Star = ({
+  priority = false,
   size = 32,
-  alt = "Star Icon",
   animation = true,
   animationDelay = "0s",
   animationDuration = "2s",
@@ -18,10 +20,11 @@ export const Star = ({
   ...props
 }: Props) => {
   return (
-    <img
+    <Image
       {...props}
       src="/star.png"
-      alt={alt}
+      alt="Star"
+      priority={priority}
       width={size}
       height={size}
       className={cn(animation && "animate-pulse", className)}

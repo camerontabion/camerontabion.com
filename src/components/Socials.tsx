@@ -2,6 +2,7 @@
 
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { CheckIcon, MailIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
 import GlassContainer from "~/components/GlassContainer";
 
@@ -54,9 +55,11 @@ export const LinkedInButton = () => (
       type="button"
     >
       <div className="relative size-8">
-        <img
+        <Image
+          priority
           src="/InBug-White.png"
           alt="LinkedIn"
+          layout="fill"
           className="absolute inset-0"
         />
       </div>
