@@ -13,45 +13,43 @@ export default function Hero() {
   return (
     <section className="mx-auto flex max-w-2xl flex-col gap-4">
       <Socials isCopied={isCopied} copyToClipboard={copyToClipboard} />
-      <div className="relative">
+      <GlassContainer className="relative flex flex-col gap-4 p-8 md:gap-12">
         <StarBackground />
-        <GlassContainer className="relative flex flex-col gap-4 p-8 md:gap-12">
-          <Image
-            priority
-            src="/hero-icon.svg"
-            alt="Symbol In the middle of the page"
-            width={100}
-            height={100}
+        <Image
+          priority
+          src="/hero-icon.svg"
+          alt="Symbol In the middle of the page"
+          width={100}
+          height={100}
+        />
+        <div className="flex flex-col gap-2">
+          <p className="text-xs uppercase">FULL STACK SOFTWARE ENGINEER</p>
+          <h1 className="text-xl uppercase md:text-3xl">
+            CAMERON KEOKOLO TABION
+          </h1>
+          <About
+            copyToClipboard={copyToClipboard}
+            className="w-2/3 max-md:hidden"
           />
-          <div className="flex flex-col gap-2">
-            <p className="text-xs uppercase">FULL STACK SOFTWARE ENGINEER</p>
-            <h1 className="text-xl uppercase md:text-3xl">
-              CAMERON KEOKOLO TABION
-            </h1>
-            <About
-              copyToClipboard={copyToClipboard}
-              className="w-2/3 max-md:hidden"
-            />
-          </div>
+        </div>
+        <Image
+          priority
+          src="/me.png"
+          alt="Cameron Keokolo Tabion"
+          width={150}
+          height={150}
+          className="-right-0.5 -bottom-0.5 absolute rounded-br-lg max-sm:hidden"
+        />
+        <GlassContainer className="absolute top-3 right-3 bg-transparent p-2 backdrop-blur-none sm:hidden">
           <Image
             priority
             src="/me.png"
             alt="Cameron Keokolo Tabion"
-            width={150}
-            height={150}
-            className="-right-0.5 -bottom-0.5 absolute rounded-br-lg max-sm:hidden"
+            width={70}
+            height={70}
           />
-          <GlassContainer className="absolute top-3 right-3 bg-transparent p-2 backdrop-blur-none sm:hidden">
-            <Image
-              priority
-              src="/me.png"
-              alt="Cameron Keokolo Tabion"
-              width={70}
-              height={70}
-            />
-          </GlassContainer>
         </GlassContainer>
-      </div>
+      </GlassContainer>
       <About copyToClipboard={copyToClipboard} className="w-full md:hidden" />
     </section>
   );

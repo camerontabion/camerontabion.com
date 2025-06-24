@@ -13,7 +13,9 @@ import { cn } from "~/utils/cn";
 interface Props extends React.HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   type?: "container" | "button";
+  hoverEffect?: boolean;
   hoverStrength?: number;
+  shadowIntensity?: number;
   className?: string;
   asChild?: boolean;
 }
@@ -23,7 +25,9 @@ const GlassContainer = ({
   className,
   asChild,
   type = "container",
+  hoverEffect = true,
   hoverStrength = 3,
+  shadowIntensity = 0.1,
   ...props
 }: Props) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
@@ -44,6 +48,7 @@ const GlassContainer = ({
   }, []);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!hoverEffect) return;
     const rect = e.currentTarget.getBoundingClientRect();
     const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2; // -1 to 1
     const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2; // -1 to 1
@@ -51,6 +56,7 @@ const GlassContainer = ({
   };
 
   const handleMouseLeave = () => {
+    if (!hoverEffect) return;
     setMousePosition({ x: 0, y: 0 });
   };
 
@@ -62,7 +68,7 @@ const GlassContainer = ({
   };
 
   const glassClasses = cn(
-    "rounded-lg bg-white/10 shadow-[0_0_10px_rgba(255,255,255,0.1)] shadow-white/10 backdrop-blur-[2px]",
+    "rounded-lg bg-white/10 backdrop-blur-[2px]",
     "border-l-2 border-l-white/20",
     "border-t-2 border-t-white/20",
     "border-r-2 border-r-gray-800/20",
@@ -79,6 +85,7 @@ const GlassContainer = ({
     onMouseLeave: handleMouseLeave,
     style: {
       transform: `perspective(1000px) rotateX(${mousePosition.y * getScaledStrength()}deg) rotateY(${mousePosition.x * -getScaledStrength()}deg)`,
+      boxShadow: `0 0 10px rgba(0,0,0,${shadowIntensity})`,
     },
   };
 

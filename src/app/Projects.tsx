@@ -69,7 +69,11 @@ export default function Projects() {
             className="flex w-1/4 flex-col justify-between gap-4 p-4 max-md:w-full"
           >
             <div>
-              <GlassContainer className="relative mb-4 h-40 w-full">
+              <GlassContainer
+                className="relative mb-4 h-40 w-full"
+                hoverEffect={false}
+                shadowIntensity={1}
+              >
                 {image && (
                   <Image
                     src={image}
