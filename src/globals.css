@@ -8,6 +8,7 @@
   --animate-copied: copied 2s ease-out forwards;
   --animate-pulse: pulse 2s ease-in-out infinite;
   --animate-pulse-background: pulse-background 2s ease-in-out infinite;
+  --animate-fade-out: fade-out 1s ease-in-out forwards;
 
   @keyframes copied {
     0%, 100% {
@@ -37,6 +38,15 @@
     }
     50% {
       opacity: 0.04;
+    }
+  }
+
+  @keyframes fade-out {
+    0%, 100% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
     }
   }
 }
