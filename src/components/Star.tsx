@@ -34,7 +34,7 @@ export const Star = ({
 };
 
 export const StarBackground = () => (
-  <div className="absolute inset-0 max-sm:opacity-20">
+  <div className="pointer-events-none absolute inset-0 max-sm:opacity-20">
     <Star
       size={64}
       className="absolute bottom-1/2 left-1/2 max-md:bottom-1/3 max-md:left-1/2"
