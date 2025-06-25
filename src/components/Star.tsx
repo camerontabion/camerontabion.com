@@ -34,10 +34,10 @@ export const Star = ({
 };
 
 export const StarBackground = () => (
-  <>
+  <div className="absolute inset-0 max-sm:opacity-20">
     <Star
       size={64}
-      className="absolute bottom-1/2 left-1/2"
+      className="absolute bottom-1/2 left-1/2 max-md:bottom-1/3 max-md:left-1/2"
       animationDelay="0s"
       animationDuration="2s"
     />
@@ -73,7 +73,7 @@ export const StarBackground = () => (
     />
     <Star
       size={56}
-      className="absolute top-1/4 left-2/3"
+      className="absolute top-1/4 left-2/3 max-md:top-1/2 max-md:left-4/5"
       animationDelay="1.1s"
       animationDuration="2.7s"
     />
@@ -89,5 +89,5 @@ export const StarBackground = () => (
       animationDelay="0.6s"
       animationDuration="3.3s"
     />
-  </>
+  </div>
 );
