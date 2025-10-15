@@ -21,6 +21,10 @@ export default function Hero() {
           alt="Symbol In the middle of the page"
           width={100}
           height={100}
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+          }}
         />
         <div className="flex flex-col gap-2">
           <p className="text-xs uppercase">FULL STACK SOFTWARE ENGINEER</p>
@@ -39,6 +43,10 @@ export default function Hero() {
           width={150}
           height={150}
           className="-right-0.5 -bottom-0.5 absolute rounded-br-lg max-sm:hidden"
+          style={{
+            maxWidth: "100%",
+            height: "auto",
+          }}
         />
         <GlassContainer className="absolute top-3 right-3 bg-transparent p-2 backdrop-blur-none sm:hidden">
           <Image
@@ -47,6 +55,10 @@ export default function Hero() {
             alt="Cameron Keokolo Tabion"
             width={70}
             height={70}
+            style={{
+              maxWidth: "100%",
+              height: "auto",
+            }}
           />
         </GlassContainer>
       </GlassContainer>

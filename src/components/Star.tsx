@@ -28,7 +28,12 @@ export const Star = ({
       width={size}
       height={size}
       className={cn(animation && "animate-pulse", className)}
-      style={{ animationDelay, animationDuration }}
+      style={{
+        animationDelay,
+        animationDuration,
+        maxWidth: "100%",
+        height: "auto",
+      }}
     />
   );
 };

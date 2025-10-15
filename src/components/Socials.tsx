@@ -59,8 +59,9 @@ export const LinkedInButton = () => (
           priority
           src="/InBug-White.png"
           alt="LinkedIn"
-          layout="fill"
           className="absolute inset-0"
+          fill
+          sizes="100vw"
         />
       </div>
     </GlassContainer>

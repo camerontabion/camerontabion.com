@@ -11,18 +11,21 @@
   --animate-fade-out: fade-out 1s ease-in-out forwards;
 
   @keyframes copied {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0;
       transform: translate(0, -1rem);
     }
-    5%, 95% {
+    5%,
+    95% {
       opacity: 1;
       transform: translate(0, -2rem);
     }
   }
 
   @keyframes pulse {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.6;
       transform: scale(1);
     }
@@ -33,7 +36,8 @@
   }
 
   @keyframes pulse-background {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 0.02;
     }
     50% {
@@ -42,7 +46,8 @@
   }
 
   @keyframes fade-out {
-    0%, 100% {
+    0%,
+    100% {
       opacity: 1;
     }
     100% {
