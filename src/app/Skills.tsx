@@ -13,7 +13,6 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "@icons-pack/react-simple-icons";
-import Image from "next/image";
 import GlassContainer from "../components/GlassContainer";
 import { Heading } from "../components/Heading";
 import { Section } from "../components/Section";
@@ -26,12 +25,12 @@ interface SkillImageProps {
 
 const SkillImage = ({ src, alt, className }: SkillImageProps) => (
   <div className="relative size-12 max-md:size-6">
-    <Image
+    <img
       src={src}
       alt={alt}
-      fill
-      sizes="(max-width: 768px) 24px, 48px"
       className={className}
+      loading="lazy"
+      decoding="async"
     />
   </div>
 );
@@ -58,7 +57,7 @@ const skills = [
       <SkillImage
         src="/tanstack-start.png"
         alt="TanStack Start"
-        className="grayscale"
+        className="size-full object-contain grayscale"
       />
     ),
   },
@@ -68,17 +67,35 @@ const skills = [
   },
   {
     name: "Convex",
-    icon: <SkillImage src="/convex.svg" alt="Convex" />,
+    icon: (
+      <SkillImage
+        src="/convex.svg"
+        alt="Convex"
+        className="size-full object-contain"
+      />
+    ),
   },
   {
     name: "PostgreSQL",
     icon: <SiPostgresql className="size-12 max-md:size-6" />,
   },
-  { name: "MongoDB", icon: <SiMongodb className="size-12 max-md:size-6" /> },
-  { name: "Node.js", icon: <SiNodedotjs className="size-12 max-md:size-6" /> },
-  { name: "Python", icon: <SiPython className="size-12 max-md:size-6" /> },
+  {
+    name: "MongoDB",
+    icon: <SiMongodb className="size-12 max-md:size-6" />,
+  },
+  {
+    name: "Node.js",
+    icon: <SiNodedotjs className="size-12 max-md:size-6" />,
+  },
+  {
+    name: "Python",
+    icon: <SiPython className="size-12 max-md:size-6" />,
+  },
   { name: "Go", icon: <SiGo className="size-12 max-md:size-6" /> },
-  { name: "C++", icon: <SiCplusplus className="size-12 max-md:size-6" /> },
+  {
+    name: "C++",
+    icon: <SiCplusplus className="size-12 max-md:size-6" />,
+  },
 ];
 
 export default function Skills() {

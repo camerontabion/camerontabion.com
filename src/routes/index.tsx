@@ -1,9 +1,12 @@
-import Footer from "./Footer";
-import Hero from "./Hero";
-import Projects from "./Projects";
-import Skills from "./Skills";
+import { createFileRoute } from "@tanstack/react-router";
+import Hero from "~/app/Hero";
+import Projects from "~/app/Projects";
+import Skills from "~/app/Skills";
+import Footer from "~/components/Footer";
 
-export default function App() {
+export const Route = createFileRoute("/")({ component: HomePage });
+
+function HomePage() {
   return (
     <main className="relative flex w-full flex-col gap-24 overflow-hidden p-8 text-white md:py-24">
       <div className="pointer-events-none absolute inset-0 z-10 size-full animate-fade-out bg-black motion-reduce:animate-none motion-reduce:opacity-0" />

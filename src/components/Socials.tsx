@@ -1,9 +1,5 @@
-"use client";
-
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { CheckIcon, MailIcon } from "lucide-react";
-import Image from "next/image";
-import Link from "next/link";
 import GlassContainer from "~/components/GlassContainer";
 
 interface SocialsProps {
@@ -53,7 +49,7 @@ export const EmailButton = ({
 );
 
 export const LinkedInButton = () => (
-  <Link
+  <a
     href="https://www.linkedin.com/in/camerontabion/"
     target="_blank"
     rel="noreferrer"
@@ -65,21 +61,22 @@ export const LinkedInButton = () => (
       type="button"
     >
       <div className="relative size-8">
-        <Image
-          priority
+        <img
           src="/InBug-White.png"
           alt="LinkedIn"
-          className="absolute inset-0"
-          fill
-          sizes="32px"
+          width="32"
+          height="32"
+          className="absolute inset-0 size-full"
+          loading="eager"
+          decoding="async"
         />
       </div>
     </GlassContainer>
-  </Link>
+  </a>
 );
 
 export const GithubButton = () => (
-  <Link
+  <a
     href="https://github.com/camerontabion"
     target="_blank"
     rel="noreferrer"
@@ -92,5 +89,5 @@ export const GithubButton = () => (
     >
       <SiGithub className="size-8" />
     </GlassContainer>
-  </Link>
+  </a>
 );

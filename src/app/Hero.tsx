@@ -1,6 +1,3 @@
-"use client";
-
-import Image from "next/image";
 import GlassContainer from "~/components/GlassContainer";
 import { Socials } from "~/components/Socials";
 import { StarBackground } from "~/components/Star";
@@ -15,14 +12,15 @@ export default function Hero() {
       <Socials isCopied={isCopied} copyToClipboard={copyToClipboard} />
       <GlassContainer className="relative flex flex-col gap-4 p-8 md:gap-12">
         <StarBackground />
-        <Image
-          priority
+        <img
           src="/hero-icon.svg"
           alt="Cameron Tabion logo"
           width={100}
           height={100}
+          loading="eager"
+          decoding="async"
         />
-        <div className="flex flex-col gap-2">
+        <div className="flex flex-col gap-3">
           <p className="text-xs uppercase">Full stack software engineer</p>
           <h1 className="text-xl uppercase md:text-3xl">
             Cameron Keokolo Tabion
@@ -32,21 +30,23 @@ export default function Hero() {
             className="w-2/3 max-md:hidden"
           />
         </div>
-        <Image
-          priority
+        <img
           src="/me.png"
           alt="Portrait of Cameron Keokolo Tabion"
           width={150}
           height={150}
           className="-right-0.5 -bottom-0.5 absolute rounded-br-lg max-sm:hidden"
+          loading="eager"
+          decoding="async"
         />
         <GlassContainer className="absolute top-3 right-3 bg-transparent p-2 backdrop-blur-none sm:hidden">
-          <Image
-            priority
+          <img
             src="/me.png"
             alt="Portrait of Cameron Keokolo Tabion"
             width={70}
             height={70}
+            loading="eager"
+            decoding="async"
           />
         </GlassContainer>
       </GlassContainer>
@@ -61,9 +61,9 @@ interface AboutProps {
 }
 
 const About = ({ copyToClipboard, className }: AboutProps) => (
-  <p className={cn("text-xs", className)}>
-    I build clean, fast, and thoughtful web apps. If you&apos;re interested in
-    working together, contact me at{" "}
+  <p className={cn("text-xs leading-relaxed", className)}>
+    I build clean and effective web apps. If you&apos;re interested in working
+    together, contact me at{" "}
     <button
       type="button"
       onClick={() => copyToClipboard("cameronktabion@gmail.com")}

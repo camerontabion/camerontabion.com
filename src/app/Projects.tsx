@@ -1,5 +1,4 @@
 import { SiGithub } from "@icons-pack/react-simple-icons";
-import Image from "next/image";
 import { cn } from "~/utils/cn";
 import GlassContainer from "../components/GlassContainer";
 import { Heading } from "../components/Heading";
@@ -15,22 +14,29 @@ interface Project {
 
 const projects: Project[] = [
   {
+    name: "Lexsy",
+    description:
+      "Currently building at Lexsy, an AI-powered legal platform built to make legal work feel simpler and more accessible.",
+    image: "/lexsy.png",
+    link: "https://www.lexsy.ai/",
+  },
+  {
     name: "Harpie",
     description:
-      "A suite of security products for web3 wallets, where I served as lead full stack engineer.",
+      "A suite of security products for your web3 wallet. I was the Lead Full Stack Engineer at Harpie.",
     image: "/harpie.png",
   },
   {
     name: "Coop Do",
     description:
-      "A modern workspace for projects, tasks, and collaboration in one polished platform.",
+      "A modern workspace that brings your projects, tasks, and team together. Create, organize, and collaborate in one beautifully designed platform.",
     image: "/coop-do.png",
     link: "https://coopdo.com",
   },
   {
     name: "Healage",
     description:
-      "A healthcare dashboard for patients, prescriptions, and medication reminders built with UNLV's Kirk Kerkorian School of Medicine.",
+      "A dashboard for managing patients, prescriptions, and medication reminders. Created in partnership with the Kirk Kerkorian School of Medicine at UNLV.",
     image: "/healage.png",
   },
   {
@@ -43,7 +49,7 @@ const projects: Project[] = [
   {
     name: "Personal Website",
     description:
-      "My personal portfolio site showcasing selected projects, strengths, and technical skills.",
+      "My personal website / portfolio showcasing my skills and projects.",
     image: "/camerontabion.png",
     link: "https://www.camerontabion.com",
   },
@@ -64,12 +70,12 @@ export default function Projects() {
               hoverEffect={false}
               shadowIntensity={1}
             >
-              <Image
+              <img
                 src={image}
                 alt={`${name} project preview`}
-                className="rounded-md object-cover"
-                fill
-                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+                className="absolute inset-0 size-full rounded-md object-cover"
+                loading="lazy"
+                decoding="async"
               />
             </GlassContainer>
             <div className="flex items-center justify-between gap-2">
@@ -97,7 +103,7 @@ export default function Projects() {
                 </a>
               )}
             </div>
-            <p className="text-xs">{description}</p>
+            <p className="text-xs leading-relaxed">{description}</p>
           </GlassContainer>
         ))}
       </div>

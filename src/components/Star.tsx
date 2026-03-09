@@ -1,17 +1,17 @@
-import Image, { type ImageProps } from "next/image";
+import type { CSSProperties, ImgHTMLAttributes } from "react";
 import { cn } from "~/utils/cn";
 
-interface Props extends Omit<ImageProps, "src" | "alt"> {
+interface Props
+  extends Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "alt"> {
   size?: number;
   animation?: boolean;
   animationDelay?: string;
   animationDuration?: string;
-  priority?: boolean;
   className?: string;
+  style?: CSSProperties;
 }
 
 export const Star = ({
-  priority = false,
   size = 32,
   animation = true,
   animationDelay = "0s",
@@ -21,14 +21,15 @@ export const Star = ({
   ...props
 }: Props) => {
   return (
-    <Image
+    <img
       {...props}
       src="/star.png"
       alt=""
       aria-hidden="true"
-      priority={priority}
       width={size}
       height={size}
+      loading="eager"
+      decoding="async"
       className={cn(
         animation && "animate-pulse motion-reduce:animate-none",
         className,
