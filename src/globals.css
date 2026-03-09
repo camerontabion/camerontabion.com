@@ -46,8 +46,7 @@
   }
 
   @keyframes fade-out {
-    0%,
-    100% {
+    0% {
       opacity: 1;
     }
     100% {

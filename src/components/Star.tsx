@@ -17,22 +17,26 @@ export const Star = ({
   animationDelay = "0s",
   animationDuration = "2s",
   className,
+  style,
   ...props
 }: Props) => {
   return (
     <Image
       {...props}
       src="/star.png"
-      alt="Star"
+      alt=""
+      aria-hidden="true"
       priority={priority}
       width={size}
       height={size}
-      className={cn(animation && "animate-pulse", className)}
+      className={cn(
+        animation && "animate-pulse motion-reduce:animate-none",
+        className,
+      )}
       style={{
         animationDelay,
         animationDuration,
-        maxWidth: "100%",
-        height: "auto",
+        ...style,
       }}
     />
   );

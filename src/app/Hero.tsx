@@ -18,18 +18,14 @@ export default function Hero() {
         <Image
           priority
           src="/hero-icon.svg"
-          alt="Symbol In the middle of the page"
+          alt="Cameron Tabion logo"
           width={100}
           height={100}
-          style={{
-            maxWidth: "100%",
-            height: "auto",
-          }}
         />
         <div className="flex flex-col gap-2">
-          <p className="text-xs uppercase">FULL STACK SOFTWARE ENGINEER</p>
+          <p className="text-xs uppercase">Full stack software engineer</p>
           <h1 className="text-xl uppercase md:text-3xl">
-            CAMERON KEOKOLO TABION
+            Cameron Keokolo Tabion
           </h1>
           <About
             copyToClipboard={copyToClipboard}
@@ -39,26 +35,18 @@ export default function Hero() {
         <Image
           priority
           src="/me.png"
-          alt="Cameron Keokolo Tabion"
+          alt="Portrait of Cameron Keokolo Tabion"
           width={150}
           height={150}
           className="-right-0.5 -bottom-0.5 absolute rounded-br-lg max-sm:hidden"
-          style={{
-            maxWidth: "100%",
-            height: "auto",
-          }}
         />
         <GlassContainer className="absolute top-3 right-3 bg-transparent p-2 backdrop-blur-none sm:hidden">
           <Image
             priority
             src="/me.png"
-            alt="Cameron Keokolo Tabion"
+            alt="Portrait of Cameron Keokolo Tabion"
             width={70}
             height={70}
-            style={{
-              maxWidth: "100%",
-              height: "auto",
-            }}
           />
         </GlassContainer>
       </GlassContainer>
@@ -74,14 +62,17 @@ interface AboutProps {
 
 const About = ({ copyToClipboard, className }: AboutProps) => (
   <p className={cn("text-xs", className)}>
-    I build clean and effective web apps. If you're interested in working
-    together, contact me at{" "}
+    I build clean, fast, and thoughtful web apps. If you&apos;re interested in
+    working together, contact me at{" "}
     <button
       type="button"
       onClick={() => copyToClipboard("cameronktabion@gmail.com")}
+      aria-label="Copy Cameron Tabion's email address"
+      title="Copy email address"
       className="cursor-pointer font-bold transition-transform duration-200 ease-out hover:text-white/80 hover:underline active:scale-95"
     >
       cameronktabion@gmail.com
     </button>
+    .
   </p>
 );

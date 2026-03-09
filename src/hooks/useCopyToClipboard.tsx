@@ -1,23 +1,33 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export default function useCopyToClipboard() {
   const [isCopied, setIsCopied] = useState(false);
-  const timeoutRef = useRef<NodeJS.Timeout | null>(null);
+  const timeoutRef = useRef<ReturnType<typeof setTimeout> | null>(null);
 
-  const copyToClipboard = (text: string) => {
-    navigator.clipboard.writeText(text);
-    setIsCopied(true);
+  useEffect(() => {
+    return () => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+    };
+  }, []);
 
-    // Clear any existing timeout
-    if (timeoutRef.current) {
-      clearTimeout(timeoutRef.current);
-    }
+  const copyToClipboard = async (text: string) => {
+    try {
+      await navigator.clipboard.writeText(text);
+      setIsCopied(true);
 
-    // Set new timeout
-    timeoutRef.current = setTimeout(() => {
+      if (timeoutRef.current) {
+        clearTimeout(timeoutRef.current);
+      }
+
+      timeoutRef.current = setTimeout(() => {
+        setIsCopied(false);
+        timeoutRef.current = null;
+      }, 2000);
+    } catch {
       setIsCopied(false);
-      timeoutRef.current = null;
-    }, 2000);
+    }
   };
 
   return { isCopied, copyToClipboard };

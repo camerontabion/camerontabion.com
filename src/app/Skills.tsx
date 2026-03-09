@@ -18,6 +18,24 @@ import GlassContainer from "../components/GlassContainer";
 import { Heading } from "../components/Heading";
 import { Section } from "../components/Section";
 
+interface SkillImageProps {
+  src: string;
+  alt: string;
+  className?: string;
+}
+
+const SkillImage = ({ src, alt, className }: SkillImageProps) => (
+  <div className="relative size-12 max-md:size-6">
+    <Image
+      src={src}
+      alt={alt}
+      fill
+      sizes="(max-width: 768px) 24px, 48px"
+      className={className}
+    />
+  </div>
+);
+
 const skills = [
   { name: "HTML", icon: <SiHtml5 className="size-12 max-md:size-6" /> },
   { name: "CSS", icon: <SiCss className="size-12 max-md:size-6" /> },
@@ -30,21 +48,17 @@ const skills = [
     icon: <SiTypescript className="size-12 max-md:size-6" />,
   },
   { name: "React", icon: <SiReact className="size-12 max-md:size-6" /> },
-  { name: "Next.js", icon: <SiNextdotjs className="size-12 max-md:size-6" /> },
   {
-    name: "Tanstack Start",
+    name: "Next.js",
+    icon: <SiNextdotjs className="size-12 max-md:size-6" />,
+  },
+  {
+    name: "TanStack Start",
     icon: (
-      <Image
+      <SkillImage
         src="/tanstack-start.png"
-        alt="Tanstack Start"
-        width={48}
-        height={48}
-        style={{
-          maxWidth: "100%",
-          height: "auto",
-          filter: "grayscale(100%)",
-        }}
-        className="max-md:size-6"
+        alt="TanStack Start"
+        className="grayscale"
       />
     ),
   },
@@ -54,19 +68,7 @@ const skills = [
   },
   {
     name: "Convex",
-    icon: (
-      <Image
-        src="/convex.svg"
-        alt="Convex"
-        width={48}
-        height={48}
-        style={{
-          maxWidth: "100%",
-          height: "auto",
-        }}
-        className="max-md:size-6"
-      />
-    ),
+    icon: <SkillImage src="/convex.svg" alt="Convex" />,
   },
   {
     name: "PostgreSQL",

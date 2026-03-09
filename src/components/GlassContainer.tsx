@@ -1,6 +1,11 @@
 "use client";
 
-import type { HTMLAttributes, ReactElement, ReactNode } from "react";
+import type {
+  HTMLAttributes,
+  MouseEvent,
+  ReactElement,
+  ReactNode,
+} from "react";
 import {
   cloneElement,
   isValidElement,
@@ -10,7 +15,7 @@ import {
 } from "react";
 import { cn } from "~/utils/cn";
 
-interface Props extends React.HTMLAttributes<HTMLDivElement> {
+interface Props extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
   type?: "container" | "button";
   hoverEffect?: boolean;
@@ -28,10 +33,12 @@ const GlassContainer = ({
   hoverEffect = true,
   hoverStrength = 3,
   shadowIntensity = 0.1,
+  style,
   ...props
 }: Props) => {
   const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
   const [containerSize, setContainerSize] = useState({ width: 0, height: 0 });
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -47,16 +54,26 @@ const GlassContainer = ({
     return () => window.removeEventListener("resize", updateSize);
   }, []);
 
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!hoverEffect) return;
+  useEffect(() => {
+    const mediaQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+    const updatePreference = () => setPrefersReducedMotion(mediaQuery.matches);
+
+    updatePreference();
+    mediaQuery.addEventListener("change", updatePreference);
+
+    return () => mediaQuery.removeEventListener("change", updatePreference);
+  }, []);
+
+  const handleMouseMove = (e: MouseEvent<HTMLDivElement>) => {
+    if (!hoverEffect || prefersReducedMotion) return;
     const rect = e.currentTarget.getBoundingClientRect();
-    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2; // -1 to 1
-    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2; // -1 to 1
+    const x = ((e.clientX - rect.left) / rect.width - 0.5) * 2;
+    const y = ((e.clientY - rect.top) / rect.height - 0.5) * 2;
     setMousePosition({ x, y });
   };
 
   const handleMouseLeave = () => {
-    if (!hoverEffect) return;
+    if (!hoverEffect || prefersReducedMotion) return;
     setMousePosition({ x: 0, y: 0 });
   };
 
@@ -74,7 +91,7 @@ const GlassContainer = ({
     "border-r-2 border-r-gray-800/20",
     "border-b-2 border-b-gray-800/20",
     type === "button" && "cursor-pointer hover:bg-white/20 active:scale-95",
-    "transition-transform duration-200 ease-out",
+    "transition-transform duration-200 ease-out motion-reduce:transform-none",
     className,
   );
 
@@ -84,8 +101,12 @@ const GlassContainer = ({
     onMouseMove: handleMouseMove,
     onMouseLeave: handleMouseLeave,
     style: {
-      transform: `perspective(1000px) rotateX(${mousePosition.y * getScaledStrength()}deg) rotateY(${mousePosition.x * -getScaledStrength()}deg)`,
+      transform:
+        hoverEffect && !prefersReducedMotion
+          ? `perspective(1000px) rotateX(${mousePosition.y * getScaledStrength()}deg) rotateY(${mousePosition.x * -getScaledStrength()}deg)`
+          : "none",
       boxShadow: `0 0 10px rgba(0,0,0,${shadowIntensity})`,
+      ...style,
     },
   };
 

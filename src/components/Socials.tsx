@@ -32,6 +32,10 @@ export const EmailButton = ({
     <button
       type="button"
       onClick={() => copyToClipboard("cameronktabion@gmail.com")}
+      aria-label={
+        isCopied ? "Email address copied to clipboard" : "Copy email address"
+      }
+      title={isCopied ? "Email copied" : "Copy email address"}
       className="relative flex items-center justify-center p-2"
     >
       {isCopied && (
@@ -49,7 +53,13 @@ export const EmailButton = ({
 );
 
 export const LinkedInButton = () => (
-  <Link href="https://www.linkedin.com/in/camerontabion/" target="_blank">
+  <Link
+    href="https://www.linkedin.com/in/camerontabion/"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Open Cameron Tabion's LinkedIn profile"
+    title="LinkedIn"
+  >
     <GlassContainer
       className="flex items-center justify-center p-2 pl-2.5"
       type="button"
@@ -61,7 +71,7 @@ export const LinkedInButton = () => (
           alt="LinkedIn"
           className="absolute inset-0"
           fill
-          sizes="100vw"
+          sizes="32px"
         />
       </div>
     </GlassContainer>
@@ -69,7 +79,13 @@ export const LinkedInButton = () => (
 );
 
 export const GithubButton = () => (
-  <Link href="https://github.com/camerontabion" target="_blank">
+  <Link
+    href="https://github.com/camerontabion"
+    target="_blank"
+    rel="noreferrer"
+    aria-label="Open Cameron Tabion's GitHub profile"
+    title="GitHub"
+  >
     <GlassContainer
       className="flex items-center justify-center p-2"
       type="button"

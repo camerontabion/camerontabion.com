@@ -17,20 +17,20 @@ const projects: Project[] = [
   {
     name: "Harpie",
     description:
-      "A suite of security products for your web3 wallet. I was the Lead Full Stack Engineer at Harpie.",
+      "A suite of security products for web3 wallets, where I served as lead full stack engineer.",
     image: "/harpie.png",
   },
   {
     name: "Coop Do",
     description:
-      "A modern workspace that brings your projects, tasks, and team together. Create, organize, and collaborate in one beautifully designed platform.",
+      "A modern workspace for projects, tasks, and collaboration in one polished platform.",
     image: "/coop-do.png",
     link: "https://coopdo.com",
   },
   {
     name: "Healage",
     description:
-      "A dashboard for managing patients, prescriptions, and medication reminders. Created in partnership with the Kirk Kerkorian School of Medicine at UNLV.",
+      "A healthcare dashboard for patients, prescriptions, and medication reminders built with UNLV's Kirk Kerkorian School of Medicine.",
     image: "/healage.png",
   },
   {
@@ -43,7 +43,7 @@ const projects: Project[] = [
   {
     name: "Personal Website",
     description:
-      "My personal website / portfolio showcasing my skills and projects.",
+      "My personal portfolio site showcasing selected projects, strengths, and technical skills.",
     image: "/camerontabion.png",
     link: "https://www.camerontabion.com",
   },
@@ -64,22 +64,35 @@ export default function Projects() {
               hoverEffect={false}
               shadowIntensity={1}
             >
-              {image && (
-                <Image
-                  src={image}
-                  alt={name}
-                  className="rounded-md object-cover"
-                  fill
-                  sizes="100vw"
-                />
-              )}
+              <Image
+                src={image}
+                alt={`${name} project preview`}
+                className="rounded-md object-cover"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 25vw"
+              />
             </GlassContainer>
             <div className="flex items-center justify-between gap-2">
-              <a href={link} target="_blank" rel="noreferrer">
-                <h3 className={cn("text-lg", link && "underline")}>{name}</h3>
-              </a>
+              {link ? (
+                <a
+                  href={link}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline underline-offset-4"
+                >
+                  <h3 className={cn("text-lg")}>{name}</h3>
+                </a>
+              ) : (
+                <h3 className="text-lg">{name}</h3>
+              )}
               {ghLink && (
-                <a href={ghLink} target="_blank" rel="noreferrer">
+                <a
+                  href={ghLink}
+                  target="_blank"
+                  rel="noreferrer"
+                  aria-label={`${name} GitHub repository`}
+                  title={`${name} GitHub repository`}
+                >
                   <SiGithub />
                 </a>
               )}
