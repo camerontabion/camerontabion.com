@@ -8,9 +8,12 @@ export default function Hero() {
   const { isCopied, copyToClipboard } = useCopyToClipboard();
 
   return (
-    <section className="mx-auto flex max-w-2xl flex-col gap-4">
+    <section className="mx-auto flex max-w-2xl flex-col gap-5 md:gap-6">
       <Socials isCopied={isCopied} copyToClipboard={copyToClipboard} />
-      <GlassContainer className="relative flex flex-col gap-4 p-8 md:gap-12">
+      <GlassContainer
+        className="relative flex flex-col gap-5 p-8 md:gap-12 md:p-10"
+        hoverStrength={1}
+      >
         <StarBackground />
         <img
           src="/hero-icon.svg"
@@ -20,8 +23,10 @@ export default function Hero() {
           loading="eager"
           decoding="async"
         />
-        <div className="flex flex-col gap-3">
-          <p className="text-xs uppercase">Full stack software engineer</p>
+        <div className="flex flex-col gap-4">
+          <p className="text-xs uppercase tracking-wide">
+            Full stack · Web &amp; mobile
+          </p>
           <h1 className="text-xl uppercase md:text-3xl">
             Cameron Keokolo Tabion
           </h1>
@@ -62,8 +67,9 @@ interface AboutProps {
 
 const About = ({ copyToClipboard, className }: AboutProps) => (
   <p className={cn("text-xs leading-relaxed", className)}>
-    I build clean and effective web apps. If you&apos;re interested in working
-    together, contact me at{" "}
+    I build clean, effective web and mobile software end to end, with a growing
+    focus on mobile. Open to full-time roles and selective freelance—say hello
+    at{" "}
     <button
       type="button"
       onClick={() => copyToClipboard("cameronktabion@gmail.com")}

@@ -16,7 +16,7 @@ const projects: Project[] = [
   {
     name: "Lexsy",
     description:
-      "An AI-powered legal platform built to make legal work feel simpler and more accessible. I worked on the product at Lexsy.",
+      "Legal AI for attorneys—think research, drafting, and the repetitive parts of practice, handled with software instead of busywork. I was a founding engineer at Lexsy, shipping product across the stack.",
     image: "/lexsy.png",
     link: "https://www.lexsy.ai/",
   },

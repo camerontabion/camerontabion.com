@@ -3,7 +3,8 @@ import appCss from "../styles.css?url";
 
 const siteUrl = "https://camerontabion.com";
 const siteTitle = "Cameron Keokolo Tabion";
-const siteDescription = "Cameron Keokolo Tabion's personal portfolio website.";
+const siteDescription =
+  "Full stack engineer focused on web and mobile. Open to full-time and freelance / contract work. React, TypeScript, and modern product development.";
 
 export const Route = createRootRoute({
   head: () => ({
@@ -18,7 +19,7 @@ export const Route = createRootRoute({
       {
         name: "keywords",
         content:
-          "Cameron Keokolo Tabion, full stack software engineer, software engineer portfolio, React developer, TypeScript developer",
+          "Cameron Keokolo Tabion, full stack software engineer, web developer, mobile developer, freelance developer, React, TypeScript, open to work",
       },
       { property: "og:type", content: "website" },
       { property: "og:site_name", content: siteTitle },
