@@ -100,13 +100,13 @@ const skills = [
 
 export default function Skills() {
   return (
-    <Section>
-      <Heading title="SKILLS" align="right" />
-      <div className="flex flex-wrap justify-center gap-4">
+    <Section ariaLabelledBy="skills-heading">
+      <Heading title="SKILLS" align="right" id="skills-heading" />
+      <div className="grid grid-cols-2 justify-items-stretch gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
         {skills.map(({ name, icon }) => (
           <GlassContainer
             key={name}
-            className="flex w-1/7 flex-col items-center justify-center gap-2 p-4 max-md:w-1/4"
+            className="flex flex-col items-center justify-center gap-2 p-4"
           >
             {icon}
             <p className="text-xs">{name}</p>

@@ -4,9 +4,10 @@ import { Star } from "./Star";
 interface Props {
   title: string;
   align?: "left" | "center" | "right";
+  id?: string;
 }
 
-export const Heading = ({ title, align = "left" }: Props) => (
+export const Heading = ({ title, align = "left", id }: Props) => (
   <div
     className={cn(
       "flex items-center gap-4",
@@ -16,7 +17,9 @@ export const Heading = ({ title, align = "left" }: Props) => (
     )}
   >
     {align !== "left" && <HeadingBar />}
-    <h2 className="text-2xl uppercase">{title}</h2>
+    <h2 id={id} className="text-2xl uppercase">
+      {title}
+    </h2>
     {align !== "right" && <HeadingBar />}
   </div>
 );

@@ -1,6 +1,7 @@
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { CheckIcon, MailIcon } from "lucide-react";
 import GlassContainer from "~/components/GlassContainer";
+import { CONTACT_EMAIL } from "~/constants/contact";
 
 interface SocialsProps {
   isCopied: boolean;
@@ -27,7 +28,7 @@ export const EmailButton = ({
   <GlassContainer type="button" asChild>
     <button
       type="button"
-      onClick={() => copyToClipboard("cameronktabion@gmail.com")}
+      onClick={() => copyToClipboard(CONTACT_EMAIL)}
       aria-label={
         isCopied ? "Email address copied to clipboard" : "Copy email address"
       }

@@ -1,6 +1,7 @@
 import GlassContainer from "~/components/GlassContainer";
 import { Socials } from "~/components/Socials";
 import { StarBackground } from "~/components/Star";
+import { CONTACT_EMAIL } from "~/constants/contact";
 import useCopyToClipboard from "~/hooks/useCopyToClipboard";
 import { cn } from "~/utils/cn";
 
@@ -70,15 +71,23 @@ const About = ({ copyToClipboard, className }: AboutProps) => (
     I build clean, effective web and mobile software end to end, with a growing
     focus on mobile. Open to full-time roles and selective freelance—say hello
     at{" "}
-    <button
-      type="button"
-      onClick={() => copyToClipboard("cameronktabion@gmail.com")}
-      aria-label="Copy Cameron Tabion's email address"
-      title="Copy email address"
-      className="cursor-pointer font-bold transition-transform duration-200 ease-out hover:text-white/80 hover:underline active:scale-95"
-    >
-      cameronktabion@gmail.com
-    </button>
+    <span className="inline-flex flex-wrap items-baseline gap-x-2 gap-y-1">
+      <a
+        href={`mailto:${CONTACT_EMAIL}`}
+        className="font-bold underline-offset-2 transition-colors hover:text-white/80 hover:underline"
+      >
+        {CONTACT_EMAIL}
+      </a>
+      <button
+        type="button"
+        onClick={() => copyToClipboard(CONTACT_EMAIL)}
+        aria-label="Copy email address to clipboard"
+        title="Copy email address"
+        className="text-[0.65rem] text-white/55 uppercase tracking-wide underline-offset-2 transition-colors hover:text-white/80 hover:underline"
+      >
+        Copy
+      </button>
+    </span>
     .
   </p>
 );

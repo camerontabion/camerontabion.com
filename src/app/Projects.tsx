@@ -49,7 +49,7 @@ const projects: Project[] = [
   {
     name: "Personal Website",
     description:
-      "My personal website / portfolio showcasing my skills and projects.",
+      "This portfolio—TanStack Start, Vite, React, and Tailwind—where I iterate on performance, a11y, and small UX details.",
     image: "/camerontabion.png",
     link: "https://www.camerontabion.com",
   },
@@ -57,8 +57,8 @@ const projects: Project[] = [
 
 export default function Projects() {
   return (
-    <Section>
-      <Heading title="PROJECTS" />
+    <Section ariaLabelledBy="projects-heading">
+      <Heading title="PROJECTS" id="projects-heading" />
       <div className="flex flex-wrap items-stretch justify-center gap-4 max-md:flex-col">
         {projects.map(({ name, description, image, link, ghLink }) => (
           <GlassContainer
