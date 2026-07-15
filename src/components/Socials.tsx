@@ -1,15 +1,23 @@
 import { SiGithub } from "@icons-pack/react-simple-icons";
 import { CheckIcon, MailIcon } from "lucide-react";
-import GlassContainer from "~/components/GlassContainer";
 import { CONTACT_EMAIL } from "~/constants/contact";
+import { cn } from "~/utils/cn";
 
 interface SocialsProps {
   isCopied: boolean;
   copyToClipboard: (text: string) => void;
+  className?: string;
 }
 
-export const Socials = ({ isCopied, copyToClipboard }: SocialsProps) => (
-  <div className="flex items-stretch gap-4 self-end">
+const buttonBase =
+  "group flex size-11 items-center justify-center rounded-xl border border-border bg-surface text-foreground/80 transition duration-200 ease-out hover:-translate-y-0.5 hover:border-border-strong hover:bg-surface-2 hover:text-foreground motion-reduce:transition-none motion-reduce:hover:transform-none";
+
+export const Socials = ({
+  isCopied,
+  copyToClipboard,
+  className,
+}: SocialsProps) => (
+  <div className={cn("flex items-center gap-3", className)}>
     <EmailButton isCopied={isCopied} copyToClipboard={copyToClipboard} />
     <LinkedInButton />
     <GithubButton />
@@ -25,28 +33,26 @@ export const EmailButton = ({
   isCopied,
   copyToClipboard,
 }: EmailButtonProps) => (
-  <GlassContainer type="button" asChild>
-    <button
-      type="button"
-      onClick={() => copyToClipboard(CONTACT_EMAIL)}
-      aria-label={
-        isCopied ? "Email address copied to clipboard" : "Copy email address"
-      }
-      title={isCopied ? "Email copied" : "Copy email address"}
-      className="relative flex items-center justify-center p-2"
-    >
-      {isCopied && (
-        <p className="-translate-y-1/2 absolute animate-copied text-white text-xs">
-          Copied!
-        </p>
-      )}
-      {isCopied ? (
-        <CheckIcon className="size-8" />
-      ) : (
-        <MailIcon className="size-8" />
-      )}
-    </button>
-  </GlassContainer>
+  <button
+    type="button"
+    onClick={() => copyToClipboard(CONTACT_EMAIL)}
+    aria-label={
+      isCopied ? "Email address copied to clipboard" : "Copy email address"
+    }
+    title={isCopied ? "Email copied" : "Copy email address"}
+    className={cn(buttonBase, "relative cursor-pointer")}
+  >
+    {isCopied && (
+      <span className="-translate-x-1/2 absolute bottom-2/3 left-full animate-copied whitespace-nowrap text-primary-soft text-xs">
+        Copied!
+      </span>
+    )}
+    {isCopied ? (
+      <CheckIcon className="size-5 text-accent" />
+    ) : (
+      <MailIcon className="size-5" />
+    )}
+  </button>
 );
 
 export const LinkedInButton = () => (
@@ -56,23 +62,17 @@ export const LinkedInButton = () => (
     rel="noreferrer"
     aria-label="Open Cameron Tabion's LinkedIn profile"
     title="LinkedIn"
+    className={buttonBase}
   >
-    <GlassContainer
-      className="flex items-center justify-center p-2 pl-2.5"
-      type="button"
-    >
-      <div className="relative size-8">
-        <img
-          src="/InBug-White.png"
-          alt="LinkedIn"
-          width="32"
-          height="32"
-          className="absolute inset-0 size-full"
-          loading="eager"
-          decoding="async"
-        />
-      </div>
-    </GlassContainer>
+    <img
+      src="/InBug-White.png"
+      alt="LinkedIn"
+      width="20"
+      height="20"
+      className="size-5 opacity-80 transition-opacity group-hover:opacity-100"
+      loading="eager"
+      decoding="async"
+    />
   </a>
 );
 
@@ -83,12 +83,8 @@ export const GithubButton = () => (
     rel="noreferrer"
     aria-label="Open Cameron Tabion's GitHub profile"
     title="GitHub"
+    className={buttonBase}
   >
-    <GlassContainer
-      className="flex items-center justify-center p-2"
-      type="button"
-    >
-      <SiGithub className="size-8" />
-    </GlassContainer>
+    <SiGithub className="size-5" />
   </a>
 );

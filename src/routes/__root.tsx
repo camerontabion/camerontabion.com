@@ -46,11 +46,21 @@ export const Route = createRootRoute({
       { name: "twitter:image", content: `${siteUrl}/me.png` },
       {
         name: "theme-color",
-        content: "#0b0d14",
+        content: "#0a0b0f",
       },
       { "script:ld+json": personLdJson },
     ],
     links: [
+      { rel: "preconnect", href: "https://fonts.googleapis.com" },
+      {
+        rel: "preconnect",
+        href: "https://fonts.gstatic.com",
+        crossOrigin: "anonymous",
+      },
+      {
+        rel: "stylesheet",
+        href: "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@400;500;600&display=swap",
+      },
       { rel: "stylesheet", href: appCss },
       { rel: "icon", type: "image/png", href: "/icon.png" },
       { rel: "canonical", href: siteUrl },
@@ -66,7 +76,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
       <head>
         <HeadContent />
       </head>
-      <body className="bg-background text-primary-foreground antialiased [overflow-wrap:anywhere]">
+      <body className="bg-background font-sans text-foreground antialiased [overflow-wrap:anywhere]">
         <a
           href="#main-content"
           className="absolute top-0 left-[-9999px] z-[100] rounded-lg bg-white px-4 py-2 font-medium text-background text-sm shadow-lg focus:top-4 focus:left-4 focus:outline focus:outline-2 focus:outline-offset-2"

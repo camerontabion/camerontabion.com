@@ -1,6 +1,8 @@
 import { SiGithub } from "@icons-pack/react-simple-icons";
+import { ArrowUpRight } from "lucide-react";
+import { Card } from "~/components/Card";
+import { Reveal } from "~/components/Reveal";
 import { cn } from "~/utils/cn";
-import GlassContainer from "../components/GlassContainer";
 import { Heading } from "../components/Heading";
 import { Section } from "../components/Section";
 
@@ -10,33 +12,35 @@ interface Project {
   image: string;
   link?: string;
   ghLink?: string;
+  featured?: boolean;
 }
 
 const projects: Project[] = [
   {
     name: "Lexsy",
     description:
-      "Legal AI for attorneys—think research, drafting, and the repetitive parts of practice, handled with software instead of busywork. I was a founding engineer at Lexsy, shipping product across the stack.",
+      "Legal AI that helps attorneys with research, drafting, and the busywork that eats up their day. I was a founding engineer here and worked across the whole stack.",
     image: "/lexsy.png",
     link: "https://www.lexsy.ai/",
+    featured: true,
   },
   {
     name: "Harpie",
     description:
-      "A suite of security products for your web3 wallet. I was the Lead Full Stack Engineer at Harpie.",
+      "Security tools that help keep your web3 wallet safe. I was the lead full stack engineer here.",
     image: "/harpie.png",
   },
   {
     name: "Coop Do",
     description:
-      "A modern workspace that brings your projects, tasks, and team together. Create, organize, and collaborate in one beautifully designed platform.",
+      "A workspace for keeping your projects, tasks, and team in one place instead of scattered across a dozen tabs.",
     image: "/coop-do.png",
     link: "https://coopdo.com",
   },
   {
     name: "Healage",
     description:
-      "A dashboard for managing patients, prescriptions, and medication reminders. Created in partnership with the Kirk Kerkorian School of Medicine at UNLV.",
+      "A dashboard for tracking patients, prescriptions, and medication reminders. Built with the Kirk Kerkorian School of Medicine at UNLV.",
     image: "/healage.png",
   },
   {
@@ -46,67 +50,159 @@ const projects: Project[] = [
     link: "https://lvsp.camerontabion.com",
     ghLink: "https://github.com/camerontabion/lvsp-website",
   },
-  {
-    name: "Personal Website",
-    description:
-      "This portfolio—TanStack Start, Vite, React, and Tailwind—where I iterate on performance, a11y, and small UX details.",
-    image: "/camerontabion.png",
-    link: "https://www.camerontabion.com",
-  },
 ];
+
+const featured = projects.filter((p) => p.featured);
+const rest = projects.filter((p) => !p.featured);
 
 export default function Projects() {
   return (
     <Section ariaLabelledBy="projects-heading">
-      <Heading title="PROJECTS" id="projects-heading" />
-      <div className="flex flex-wrap items-stretch justify-center gap-4 max-md:flex-col">
-        {projects.map(({ name, description, image, link, ghLink }) => (
-          <GlassContainer
-            key={name}
-            className="flex w-1/4 flex-col gap-3 p-4 max-md:w-full"
-          >
-            <GlassContainer
-              className="relative h-40 w-full"
-              hoverEffect={false}
-              shadowIntensity={1}
-            >
-              <img
-                src={image}
-                alt={`${name} project preview`}
-                className="absolute inset-0 size-full rounded-md object-cover"
-                loading="lazy"
-                decoding="async"
-              />
-            </GlassContainer>
-            <div className="flex items-center justify-between gap-2">
-              {link ? (
-                <a
-                  href={link}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="underline underline-offset-4"
-                >
-                  <h3 className={cn("text-lg")}>{name}</h3>
-                </a>
-              ) : (
-                <h3 className="text-lg">{name}</h3>
-              )}
-              {ghLink && (
-                <a
-                  href={ghLink}
-                  target="_blank"
-                  rel="noreferrer"
-                  aria-label={`${name} GitHub repository`}
-                  title={`${name} GitHub repository`}
-                >
-                  <SiGithub />
-                </a>
-              )}
-            </div>
-            <p className="text-xs leading-relaxed">{description}</p>
-          </GlassContainer>
+      <Reveal>
+        <Heading
+          eyebrow="Selected work"
+          title="Projects"
+          id="projects-heading"
+        />
+      </Reveal>
+      <div className="flex flex-col gap-6">
+        {featured.map((project) => (
+          <Reveal key={project.name}>
+            <FeaturedCard project={project} />
+          </Reveal>
         ))}
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+          {rest.map((project, i) => (
+            <Reveal key={project.name} delay={i * 70}>
+              <ProjectCard project={project} />
+            </Reveal>
+          ))}
+        </div>
       </div>
     </Section>
   );
 }
+
+const ProjectThumb = ({
+  image,
+  name,
+  link,
+  className,
+}: {
+  image: string;
+  name: string;
+  link?: string;
+  className?: string;
+}) => {
+  const inner = (
+    <>
+      <img
+        src={image}
+        alt={`${name} project preview`}
+        className="absolute inset-0 size-full object-cover transition-transform duration-500 ease-out group-hover:scale-105 motion-reduce:transform-none"
+        loading="lazy"
+        decoding="async"
+      />
+      <div className="absolute inset-0 bg-gradient-to-t from-background/60 via-transparent to-transparent" />
+      {link && (
+        <span className="absolute top-3 right-3 flex size-8 items-center justify-center rounded-lg border border-border-strong bg-background/70 text-foreground opacity-0 backdrop-blur-sm transition-all duration-300 ease-out group-hover:translate-y-0 group-hover:opacity-100 motion-reduce:opacity-100">
+          <ArrowUpRight className="size-4" />
+        </span>
+      )}
+    </>
+  );
+
+  const baseClass = cn(
+    "relative block overflow-hidden rounded-xl border border-border bg-surface-2",
+    className,
+  );
+
+  if (link) {
+    return (
+      <a
+        href={link}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`Visit ${name}`}
+        className={cn(
+          baseClass,
+          "transition-colors hover:border-border-strong",
+        )}
+      >
+        {inner}
+      </a>
+    );
+  }
+
+  return <div className={baseClass}>{inner}</div>;
+};
+
+const ProjectTitle = ({ project }: { project: Project }) => (
+  <div className="flex items-center justify-between gap-2">
+    {project.link ? (
+      <a
+        href={project.link}
+        target="_blank"
+        rel="noreferrer"
+        className="underline-offset-4 transition-colors hover:text-primary-soft hover:underline"
+      >
+        <h3 className="font-display font-medium text-foreground text-lg">
+          {project.name}
+        </h3>
+      </a>
+    ) : (
+      <h3 className="font-display font-medium text-foreground text-lg">
+        {project.name}
+      </h3>
+    )}
+    {project.ghLink && (
+      <a
+        href={project.ghLink}
+        target="_blank"
+        rel="noreferrer"
+        aria-label={`${project.name} GitHub repository`}
+        title={`${project.name} GitHub repository`}
+        className="text-muted transition-colors hover:text-foreground"
+      >
+        <SiGithub className="size-5" />
+      </a>
+    )}
+  </div>
+);
+
+const ProjectCard = ({ project }: { project: Project }) => (
+  <Card className="group flex h-full flex-col gap-4 p-4">
+    <ProjectThumb
+      image={project.image}
+      name={project.name}
+      link={project.link}
+      className="h-44 w-full"
+    />
+    <div className="flex flex-col gap-2 px-1 pb-1">
+      <ProjectTitle project={project} />
+      <p className="text-muted text-sm leading-relaxed">
+        {project.description}
+      </p>
+    </div>
+  </Card>
+);
+
+const FeaturedCard = ({ project }: { project: Project }) => (
+  <Card className="group grid gap-6 p-5 md:grid-cols-2 md:p-6">
+    <ProjectThumb
+      image={project.image}
+      name={project.name}
+      link={project.link}
+      className="h-56 w-full md:h-full md:min-h-[16rem]"
+    />
+    <div className="flex flex-col justify-center gap-4 md:pr-2">
+      <span className="w-fit font-display text-base text-primary-soft italic">
+        Featured project
+      </span>
+      <ProjectTitle project={project} />
+      <p className="text-base text-muted leading-relaxed">
+        {project.description}
+      </p>
+    </div>
+  </Card>
+);

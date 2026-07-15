@@ -1,103 +1,51 @@
-import type { CSSProperties, ImgHTMLAttributes } from "react";
+import type { SVGProps } from "react";
 import { cn } from "~/utils/cn";
 
-interface Props
-  extends Omit<ImgHTMLAttributes<HTMLImageElement>, "src" | "alt"> {
-  size?: number;
-  animation?: boolean;
-  animationDelay?: string;
-  animationDuration?: string;
-  className?: string;
-  style?: CSSProperties;
+export const Star = ({ className, ...props }: SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    aria-hidden="true"
+    className={className}
+    {...props}
+  >
+    <path d="M12 0c.5 7.5 4 11 12 12-8 1-11.5 4.5-12 12-.5-7.5-4-11-12-12 8-1 11.5-4.5 12-12Z" />
+  </svg>
+);
+
+interface DecorativeStar {
+  position: string;
+  size: number;
+  delay: string;
+  duration: string;
 }
 
-export const Star = ({
-  size = 32,
-  animation = true,
-  animationDelay = "0s",
-  animationDuration = "2s",
-  className,
-  style,
-  ...props
-}: Props) => {
-  return (
-    <img
-      {...props}
-      src="/star.png"
-      alt=""
-      aria-hidden="true"
-      width={size}
-      height={size}
-      loading="eager"
-      decoding="async"
-      className={cn(
-        animation && "animate-pulse motion-reduce:animate-none",
-        className,
-      )}
-      style={{
-        animationDelay,
-        animationDuration,
-        ...style,
-      }}
-    />
-  );
-};
+const decorativeStars: DecorativeStar[] = [
+  { position: "top-6 right-10", size: 14, delay: "0s", duration: "4s" },
+  { position: "top-20 right-28", size: 8, delay: "1.2s", duration: "5s" },
+  { position: "bottom-10 right-16", size: 11, delay: "0.6s", duration: "4.5s" },
+  { position: "bottom-24 left-8", size: 9, delay: "1.8s", duration: "5.5s" },
+];
 
-export const StarBackground = () => (
-  <div className="pointer-events-none absolute inset-0 max-sm:opacity-20">
-    <Star
-      size={64}
-      className="absolute bottom-1/2 left-1/2 max-md:bottom-1/3 max-md:left-1/2"
-      animationDelay="0s"
-      animationDuration="2s"
-    />
-    <Star
-      size={44}
-      className="absolute top-1/3 right-1/6"
-      animationDelay="0.3s"
-      animationDuration="3.2s"
-    />
-    <Star
-      size={32}
-      className="absolute top-1/6 left-1/3"
-      animationDelay="1.2s"
-      animationDuration="2.6s"
-    />
-    <Star
-      size={48}
-      className="absolute top-1/6 right-1/3"
-      animationDelay="0.7s"
-      animationDuration="2.9s"
-    />
-    <Star
-      size={24}
-      className="absolute top-8 left-1/2"
-      animationDelay="1.8s"
-      animationDuration="2.4s"
-    />
-    <Star
-      size={40}
-      className="absolute top-8 right-1/2"
-      animationDelay="0.4s"
-      animationDuration="3.1s"
-    />
-    <Star
-      size={56}
-      className="absolute top-1/4 left-2/3 max-md:top-1/2 max-md:left-4/5"
-      animationDelay="1.1s"
-      animationDuration="2.7s"
-    />
-    <Star
-      size={20}
-      className="absolute top-1/4 right-2/3"
-      animationDelay="0.9s"
-      animationDuration="2.3s"
-    />
-    <Star
-      size={36}
-      className="absolute right-1/4 bottom-1/3"
-      animationDelay="0.6s"
-      animationDuration="3.3s"
-    />
+export const StarField = () => (
+  <div
+    aria-hidden="true"
+    className="pointer-events-none absolute inset-0 text-primary-soft"
+  >
+    {decorativeStars.map((star) => (
+      <Star
+        key={star.position}
+        className={cn(
+          "absolute animate-twinkle motion-reduce:animate-none motion-reduce:opacity-40",
+          star.position,
+        )}
+        style={{
+          width: star.size,
+          height: star.size,
+          animationDelay: star.delay,
+          animationDuration: star.duration,
+        }}
+      />
+    ))}
   </div>
 );

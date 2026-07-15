@@ -13,9 +13,13 @@ import {
   SiTailwindcss,
   SiTypescript,
 } from "@icons-pack/react-simple-icons";
-import GlassContainer from "../components/GlassContainer";
+import { Card } from "~/components/Card";
+import { Reveal } from "~/components/Reveal";
 import { Heading } from "../components/Heading";
 import { Section } from "../components/Section";
+
+const iconClass =
+  "size-10 max-md:size-8 grayscale transition duration-500 ease-out group-hover:grayscale-0 motion-reduce:transition-none";
 
 interface SkillImageProps {
   src: string;
@@ -24,7 +28,7 @@ interface SkillImageProps {
 }
 
 const SkillImage = ({ src, alt, className }: SkillImageProps) => (
-  <div className="relative size-12 max-md:size-6">
+  <div className="relative size-10 max-md:size-8">
     <img
       src={src}
       alt={alt}
@@ -36,20 +40,20 @@ const SkillImage = ({ src, alt, className }: SkillImageProps) => (
 );
 
 const skills = [
-  { name: "HTML", icon: <SiHtml5 className="size-12 max-md:size-6" /> },
-  { name: "CSS", icon: <SiCss className="size-12 max-md:size-6" /> },
+  { name: "HTML", icon: <SiHtml5 color="default" className={iconClass} /> },
+  { name: "CSS", icon: <SiCss color="default" className={iconClass} /> },
   {
     name: "JavaScript",
-    icon: <SiJavascript className="size-12 max-md:size-6" />,
+    icon: <SiJavascript color="default" className={iconClass} />,
   },
   {
     name: "TypeScript",
-    icon: <SiTypescript className="size-12 max-md:size-6" />,
+    icon: <SiTypescript color="default" className={iconClass} />,
   },
-  { name: "React", icon: <SiReact className="size-12 max-md:size-6" /> },
+  { name: "React", icon: <SiReact color="default" className={iconClass} /> },
   {
     name: "Next.js",
-    icon: <SiNextdotjs className="size-12 max-md:size-6" />,
+    icon: <SiNextdotjs color="default" className={iconClass} />,
   },
   {
     name: "TanStack Start",
@@ -57,13 +61,13 @@ const skills = [
       <SkillImage
         src="/tanstack-start.png"
         alt="TanStack Start"
-        className="size-full object-contain grayscale"
+        className="size-full object-contain grayscale transition duration-500 ease-out group-hover:grayscale-0 motion-reduce:transition-none"
       />
     ),
   },
   {
     name: "Tailwind",
-    icon: <SiTailwindcss className="size-12 max-md:size-6" />,
+    icon: <SiTailwindcss color="default" className={iconClass} />,
   },
   {
     name: "Convex",
@@ -71,46 +75,49 @@ const skills = [
       <SkillImage
         src="/convex.svg"
         alt="Convex"
-        className="size-full object-contain"
+        className="size-full object-contain grayscale transition duration-500 ease-out group-hover:grayscale-0 motion-reduce:transition-none"
       />
     ),
   },
   {
     name: "PostgreSQL",
-    icon: <SiPostgresql className="size-12 max-md:size-6" />,
+    icon: <SiPostgresql color="default" className={iconClass} />,
   },
   {
     name: "MongoDB",
-    icon: <SiMongodb className="size-12 max-md:size-6" />,
+    icon: <SiMongodb color="default" className={iconClass} />,
   },
   {
     name: "Node.js",
-    icon: <SiNodedotjs className="size-12 max-md:size-6" />,
+    icon: <SiNodedotjs color="default" className={iconClass} />,
   },
   {
     name: "Python",
-    icon: <SiPython className="size-12 max-md:size-6" />,
+    icon: <SiPython color="default" className={iconClass} />,
   },
-  { name: "Go", icon: <SiGo className="size-12 max-md:size-6" /> },
+  { name: "Go", icon: <SiGo color="default" className={iconClass} /> },
   {
     name: "C++",
-    icon: <SiCplusplus className="size-12 max-md:size-6" />,
+    icon: <SiCplusplus color="default" className={iconClass} />,
   },
 ];
 
 export default function Skills() {
   return (
     <Section ariaLabelledBy="skills-heading">
-      <Heading title="SKILLS" align="right" id="skills-heading" />
-      <div className="grid grid-cols-2 justify-items-stretch gap-4 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5">
-        {skills.map(({ name, icon }) => (
-          <GlassContainer
-            key={name}
-            className="flex flex-col items-center justify-center gap-2 p-4"
-          >
-            {icon}
-            <p className="text-xs">{name}</p>
-          </GlassContainer>
+      <Reveal>
+        <Heading eyebrow="Toolkit" title="Skills" id="skills-heading" />
+      </Reveal>
+      <div className="grid grid-cols-3 gap-3 sm:grid-cols-4 md:grid-cols-5 md:gap-4">
+        {skills.map(({ name, icon }, i) => (
+          <Reveal key={name} delay={i * 35}>
+            <Card className="group flex h-full flex-col items-center justify-center gap-3 p-4 md:p-5">
+              {icon}
+              <p className="text-muted text-xs transition-colors group-hover:text-foreground">
+                {name}
+              </p>
+            </Card>
+          </Reveal>
         ))}
       </div>
     </Section>

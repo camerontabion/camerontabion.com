@@ -3,31 +3,31 @@ import { Star } from "./Star";
 
 interface Props {
   title: string;
-  align?: "left" | "center" | "right";
+  eyebrow?: string;
   id?: string;
+  className?: string;
 }
 
-export const Heading = ({ title, align = "left", id }: Props) => (
-  <div
-    className={cn(
-      "flex items-center gap-4",
-      align === "left" && "justify-start",
-      align === "center" && "justify-center",
-      align === "right" && "justify-end",
+export const Heading = ({ title, eyebrow, id, className }: Props) => (
+  <div className={cn("flex flex-col gap-4", className)}>
+    {eyebrow && (
+      <span className="flex items-center gap-2 font-display text-base text-primary-soft italic">
+        <Star className="size-3.5" />
+        {eyebrow}
+      </span>
     )}
-  >
-    {align !== "left" && <HeadingBar />}
-    <h2 id={id} className="text-2xl uppercase">
-      {title}
-    </h2>
-    {align !== "right" && <HeadingBar />}
-  </div>
-);
-
-const HeadingBar = () => (
-  <div className="flex items-center gap-2">
-    <div className="h-0.25 w-8 bg-white sm:w-24" />
-    <Star />
-    <div className="h-0.25 w-8 bg-white sm:w-24" />
+    <div className="flex items-center gap-5">
+      <h2
+        id={id}
+        className="font-display font-medium text-3xl text-foreground tracking-tight md:text-4xl"
+      >
+        {title}
+      </h2>
+      <span
+        aria-hidden="true"
+        className="h-px flex-1 bg-gradient-to-r from-border-strong to-transparent"
+      />
+      <Star className="size-4 shrink-0 text-primary-soft/70" />
+    </div>
   </div>
 );
