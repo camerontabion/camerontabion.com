@@ -1,4 +1,3 @@
-import { ArrowRight } from "lucide-react";
 import { Card } from "~/components/Card";
 import { Logo } from "~/components/Logo";
 import { Socials } from "~/components/Socials";
@@ -25,7 +24,7 @@ export default function Hero() {
             </div>
             <div className="flex flex-col gap-5">
               <p className="font-display text-lg text-primary-soft italic">
-                Full stack engineer, focused on web &amp; mobile
+                Full stack engineer who likes building useful things.
               </p>
               <h1 className="font-display font-medium text-5xl text-foreground leading-[1.02] tracking-tight md:text-6xl">
                 Cameron Keokolo Tabion
@@ -33,13 +32,6 @@ export default function Hero() {
               <About copyToClipboard={copyToClipboard} />
             </div>
             <div className="flex flex-wrap items-center gap-4">
-              <a
-                href={`mailto:${CONTACT_EMAIL}`}
-                className="group hover:-translate-y-0.5 inline-flex items-center gap-2 rounded-full bg-primary px-5 py-3 font-medium text-primary-foreground text-sm shadow-[0_10px_30px_-12px_rgba(232,160,106,0.9)] transition duration-200 ease-out hover:bg-primary-soft motion-reduce:transition-none motion-reduce:hover:transform-none"
-              >
-                Get in touch
-                <ArrowRight className="size-4 transition-transform duration-200 ease-out group-hover:translate-x-0.5 motion-reduce:transition-none" />
-              </a>
               <Socials isCopied={isCopied} copyToClipboard={copyToClipboard} />
             </div>
           </div>
@@ -84,9 +76,9 @@ interface AboutProps {
 
 const About = ({ copyToClipboard }: AboutProps) => (
   <p className="max-w-xl text-base text-muted leading-relaxed">
-    I build web and mobile apps, and I like sweating the small stuff that makes
-    them feel good to use. Open to full-time roles and a bit of freelance—say
-    hello at{" "}
+    I design and build web and mobile apps that are fast, clean, and easy to
+    use. Currently up for full-time work and the odd freelance project—find me
+    at{" "}
     <button
       type="button"
       onClick={() => copyToClipboard(CONTACT_EMAIL)}
