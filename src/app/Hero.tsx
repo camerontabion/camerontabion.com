@@ -72,20 +72,14 @@ const About = ({ copyToClipboard, className }: AboutProps) => (
     focus on mobile. Open to full-time roles and selective freelance—say hello
     at{" "}
     <span className="inline-flex flex-wrap items-baseline gap-x-2 gap-y-1">
-      <a
-        href={`mailto:${CONTACT_EMAIL}`}
-        className="font-bold underline-offset-2 transition-colors hover:text-white/80 hover:underline"
-      >
-        {CONTACT_EMAIL}
-      </a>
       <button
         type="button"
         onClick={() => copyToClipboard(CONTACT_EMAIL)}
         aria-label="Copy email address to clipboard"
         title="Copy email address"
-        className="text-[0.65rem] text-white/55 uppercase tracking-wide underline-offset-2 transition-colors hover:text-white/80 hover:underline"
+        className="text-[0.65rem] text-white/55 tracking-wide underline-offset-2 transition-colors hover:text-white/80 hover:underline"
       >
-        Copy
+        {CONTACT_EMAIL}
       </button>
     </span>
     .
