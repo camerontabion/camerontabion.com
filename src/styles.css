@@ -20,7 +20,7 @@
 
   --animate-copied: copied 2s ease-out forwards;
   --animate-fade-out: fade-out 0.9s ease-in-out forwards;
-  --animate-reveal: reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+  --animate-reveal: reveal 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
   --animate-drift: drift 22s ease-in-out infinite;
   --animate-drift-slow: drift 34s ease-in-out infinite;
   --animate-float: float 7s ease-in-out infinite;
