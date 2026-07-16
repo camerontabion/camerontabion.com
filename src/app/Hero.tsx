@@ -48,7 +48,7 @@ const Portrait = () => (
     <div className="absolute inset-0 rounded-3xl bg-gradient-to-br from-primary/30 to-accent/20 blur-xl" />
     <div className="relative overflow-hidden rounded-3xl bg-surface-2">
       <img
-        src="/me.png"
+        src="/me.jpg"
         alt="Portrait of Cameron Keokolo Tabion"
         width={240}
         height={276}

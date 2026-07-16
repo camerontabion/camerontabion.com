@@ -39,11 +39,11 @@ export const Route = createRootRoute({
       { property: "og:title", content: siteTitle },
       { property: "og:description", content: siteDescription },
       { property: "og:url", content: siteUrl },
-      { property: "og:image", content: `${siteUrl}/me.png` },
+      { property: "og:image", content: `${siteUrl}/me.jpg` },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "twitter:title", content: siteTitle },
       { name: "twitter:description", content: siteDescription },
-      { name: "twitter:image", content: `${siteUrl}/me.png` },
+      { name: "twitter:image", content: `${siteUrl}/me.jpg` },
       {
         name: "theme-color",
         content: "#0a0b0f",
