@@ -3,6 +3,7 @@ import Hero from "~/app/Hero";
 import Projects from "~/app/Projects";
 import Skills from "~/app/Skills";
 import { Background } from "~/components/Background";
+import { CursorStar } from "~/components/CursorStar";
 import Footer from "~/components/Footer";
 
 export const Route = createFileRoute("/")({ component: HomePage });
@@ -19,6 +20,7 @@ function HomePage() {
       <Projects />
       <Skills />
       <Footer />
+      <CursorStar />
     </main>
   );
 }
