@@ -12,11 +12,11 @@ export default function Hero() {
     <section className="mx-auto w-full max-w-5xl animate-reveal">
       <Card
         interactive={false}
-        className="relative overflow-hidden p-8 md:p-12"
+        className="relative overflow-hidden p-6 sm:p-8 md:p-12"
       >
         <div className="-top-24 -right-16 pointer-events-none absolute size-72 rounded-full bg-primary/15 blur-[100px]" />
         <StarField />
-        <div className="relative grid items-center gap-10 md:grid-cols-[1fr_auto]">
+        <div className="relative grid items-center gap-8 md:grid-cols-[1fr_auto] md:gap-10">
           <div className="flex flex-col gap-7">
             <div className="flex flex-wrap items-center gap-4">
               <Logo className="h-9 w-auto animate-float text-foreground/90 motion-reduce:animate-none" />
@@ -26,7 +26,7 @@ export default function Hero() {
               <p className="font-display text-lg text-primary-soft italic">
                 Full stack engineer who likes building useful things.
               </p>
-              <h1 className="font-display font-medium text-5xl text-foreground leading-[1.02] tracking-tight md:text-6xl">
+              <h1 className="font-display font-medium text-4xl text-foreground leading-[1.05] tracking-tight sm:text-5xl sm:leading-[1.02] md:text-6xl">
                 Cameron Keokolo Tabion
               </h1>
               <About copyToClipboard={copyToClipboard} />

@@ -12,7 +12,7 @@ function HomePage() {
   return (
     <main
       id="main-content"
-      className="relative flex w-full flex-col gap-24 px-6 py-16 text-foreground md:gap-32 md:py-24"
+      className="relative flex w-full flex-col gap-20 px-5 py-14 text-foreground sm:px-6 md:gap-32 md:py-24"
     >
       <div className="pointer-events-none fixed inset-0 z-20 size-full animate-fade-out bg-background motion-reduce:animate-none motion-reduce:opacity-0" />
       <Background />
