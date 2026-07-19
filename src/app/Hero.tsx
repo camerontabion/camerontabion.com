@@ -1,3 +1,4 @@
+import { ChevronDown } from "lucide-react";
 import { Card } from "~/components/Card";
 import { Logo } from "~/components/Logo";
 import { Socials } from "~/components/Socials";
@@ -39,9 +40,22 @@ export default function Hero() {
           <Portrait />
         </div>
       </Card>
+      <ScrollHint />
     </section>
   );
 }
+
+const ScrollHint = () => (
+  <div className="mt-8 flex animate-scroll-hint justify-center opacity-0 motion-reduce:animate-none motion-reduce:opacity-70">
+    <span
+      aria-hidden="true"
+      className="flex flex-col items-center gap-1.5 text-muted"
+    >
+      <span className="text-[0.7rem] uppercase tracking-[0.2em]">Scroll</span>
+      <ChevronDown className="size-5 animate-bounce motion-reduce:animate-none" />
+    </span>
+  </div>
+);
 
 const Portrait = () => (
   <div className="relative mx-auto w-44 shrink-0 max-md:order-first md:w-56">
@@ -77,8 +91,8 @@ interface AboutProps {
 const About = ({ copyToClipboard }: AboutProps) => (
   <p className="max-w-xl text-base text-muted leading-relaxed">
     I design and build web and mobile apps that are fast, clean, and easy to
-    use. Currently up for full-time work and the odd freelance project—find me
-    at{" "}
+    use—mostly with React, TypeScript, and whatever backend fits the job. Reach
+    me at{" "}
     <button
       type="button"
       onClick={() => copyToClipboard(CONTACT_EMAIL)}

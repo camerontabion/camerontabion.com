@@ -29,6 +29,7 @@ const projects: Project[] = [
     description:
       "Security tools that help keep your web3 wallet safe. I was the lead full stack engineer here.",
     image: "/harpie.png",
+    link: "https://harpie.io",
   },
   {
     name: "Coop Do",
@@ -57,7 +58,7 @@ const rest = projects.filter((p) => !p.featured);
 
 export default function Projects() {
   return (
-    <Section ariaLabelledBy="projects-heading">
+    <Section id="projects" ariaLabelledBy="projects-heading">
       <Reveal>
         <Heading
           eyebrow="Selected work"
