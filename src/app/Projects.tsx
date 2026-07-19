@@ -47,7 +47,7 @@ const projects: Project[] = [
     name: "Official LVSP Website",
     description: "The official website for the Las Vegas Scholars Program.",
     image: "/lvsp.png",
-    link: "https://lvsp.camerontabion.com",
+    link: "https://lvsp.camkt.io",
     ghLink: "https://github.com/camerontabion/lvsp-website",
   },
 ];

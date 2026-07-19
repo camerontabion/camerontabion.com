@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://camerontabion.com/sitemap.xml
+Sitemap: https://camkt.io/sitemap.xml

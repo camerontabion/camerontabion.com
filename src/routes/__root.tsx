@@ -2,7 +2,7 @@ import { HeadContent, Scripts, createRootRoute } from "@tanstack/react-router";
 import { NotFoundPage } from "~/components/NotFound";
 import appCss from "../styles.css?url";
 
-const siteUrl = "https://camerontabion.com";
+const siteUrl = "https://camkt.io";
 const siteTitle = "Cameron Keokolo Tabion";
 const siteDescription =
   "Full stack engineer focused on web and mobile. Open to full-time and freelance / contract work. React, TypeScript, and modern product development.";
