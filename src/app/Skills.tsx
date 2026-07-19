@@ -150,7 +150,7 @@ export default function Skills() {
                 {group.skills.map(({ name, icon }) => (
                   <Card
                     key={name}
-                    className="group flex h-full flex-col items-center justify-center gap-3 p-4 md:p-5"
+                    className="group flex h-full flex-col items-center text-center justify-center gap-3 p-4 md:p-5"
                   >
                     {icon}
                     <p className="text-muted text-xs transition-colors group-hover:text-foreground">
