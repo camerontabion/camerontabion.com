@@ -44,13 +44,6 @@ const projects: Project[] = [
       "A dashboard for tracking patients, prescriptions, and medication reminders. Built with the Kirk Kerkorian School of Medicine at UNLV.",
     image: "/healage.png",
   },
-  {
-    name: "Official LVSP Website",
-    description: "The official website for the Las Vegas Scholars Program.",
-    image: "/lvsp.png",
-    link: "https://lvsp.camkt.io",
-    ghLink: "https://github.com/camerontabion/lvsp-website",
-  },
 ];
 
 const featured = projects.filter((p) => p.featured);
