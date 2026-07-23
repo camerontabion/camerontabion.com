@@ -91,8 +91,8 @@ interface AboutProps {
 const About = ({ copyToClipboard }: AboutProps) => (
   <p className="max-w-xl text-base text-muted leading-relaxed">
     I design and build web and mobile apps that are fast, clean, and easy to
-    use—mostly with React, TypeScript, and whatever backend fits the job. Reach
-    me at{" "}
+    use. Currently up for full-time work and the odd freelance project—find me
+    at{" "}
     <button
       type="button"
       onClick={() => copyToClipboard(CONTACT_EMAIL)}
